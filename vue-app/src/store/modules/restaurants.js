@@ -12,7 +12,7 @@ const getters = {};
 const actions = {
   async listRestaurants({ commit }) {
     try {
-      const response = await fetch.get("restaurants?populate=*");
+      const response = await fetch.get("restaurants?populate[0]=categories");
       commit("setRestaurants", response);
     } catch (error) {
       console.error(error);
