@@ -1,17 +1,24 @@
 <template>
   <v-app id="inspire">
     <AppBar />
-    <Main />
+    <v-main class="grey lighten-3">
+      <v-container>
+        <router-view />
+      </v-container>
+    </v-main>
+    <v-footer app padless>
+      <v-col class="text-center deep-purple" cols="12">
+        {{ new Date().getFullYear() }} — <strong>Camille1992</strong>
+      </v-col>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
 import AppBar from "@/layout/AppBar.vue";
-import Main from "@/layout/Main.vue";
 export default {
   components: {
     AppBar,
-    Main,
   },
 };
 </script>

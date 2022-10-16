@@ -1,17 +1,13 @@
 <template>
-  <v-main class="grey lighten-3">
-    <v-container>
-      <v-row>
-        <v-col cols="3">
-          <FilterPanel />
-        </v-col>
+  <v-row>
+    <v-col cols="3">
+      <FilterPanel />
+    </v-col>
 
-        <v-col>
-          <DisplayPanel />
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-main>
+    <v-col>
+      <DisplayPanel />
+    </v-col>
+  </v-row>
 </template>
 
 <script>
