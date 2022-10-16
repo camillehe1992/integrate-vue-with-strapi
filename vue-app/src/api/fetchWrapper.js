@@ -4,11 +4,59 @@ const API_PATH = API_ROOT_HOST + "/api";
 const headers = { "Content-Type": "application/json" };
 
 const fetchWrapper = {
-  get: async (path) => {
+  get: async (route) => {
     try {
-      const response = await fetch(`${API_PATH}/${path}`, {
+      const response = await fetch(`${API_PATH}/${route}`, {
         method: "GET",
         headers,
+      })
+        .then(checkStatus)
+        .then(parseJSON)
+        .then(extractAttributes);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  post: async (route, payload) => {
+    try {
+      const response = await fetch(`${API_PATH}/${route}`, {
+        method: "POST",
+        headers,
+        body: JSON.stringify({ data: payload }),
+      })
+        .then(checkStatus)
+        .then(parseJSON)
+        .then(extractAttributes);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  put: async (route, payload) => {
+    try {
+      const response = await fetch(`${API_PATH}/${route}`, {
+        method: "PUT",
+        headers,
+        body: JSON.stringify({ data: payload }),
+      })
+        .then(checkStatus)
+        .then(parseJSON)
+        .then(extractAttributes);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  delete: async (route, payload) => {
+    try {
+      const response = await fetch(`${API_PATH}/${route}`, {
+        method: "DELETE",
+        headers,
+        body: JSON.stringify({ data: payload }),
       })
         .then(checkStatus)
         .then(parseJSON)
