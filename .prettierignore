@@ -1,0 +1,7 @@
+build
+coverage
+.package-lock.json
+*.min.*
+**/node_modules/*
+backend/.strapi/**
+backend/build/**

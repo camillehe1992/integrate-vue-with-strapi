@@ -12,19 +12,20 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string",
       "required": true,
       "unique": true
-    },
-    "Description": {
-      "type": "blocks"
     },
     "categories": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::category.category",
       "mappedBy": "restaurants"
+    },
+    "description": {
+      "type": "text",
+      "required": true
     }
   }
 }
