@@ -1,13 +1,9 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import restaurants from "./modules/restaurants";
-import categories from "./modules/categories";
+import { createStore } from "vuex";
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
-  modules: {
-    restaurants,
-    categories,
-  },
+export default createStore({
+  state: {},
+  getters: {},
+  mutations: {},
+  actions: {},
+  modules: {},
 });

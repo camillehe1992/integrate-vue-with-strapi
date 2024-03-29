@@ -1,26 +1,30 @@
 <template>
-  <v-app id="inspire">
-    <AppBar />
-    <v-main class="grey lighten-3">
-      <v-container>
-        <router-view />
-      </v-container>
-    </v-main>
-    <v-footer app padless>
-      <v-col class="text-center deep-purple" cols="12">
-        {{ new Date().getFullYear() }} — <strong>Camille1992</strong>
-      </v-col>
-    </v-footer>
-  </v-app>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
+  </nav>
+  <router-view />
 </template>
 
-<script>
-import AppBar from "@/layout/AppBar.vue";
-export default {
-  components: {
-    AppBar,
-  },
-};
-</script>
 <style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
+}
 </style>
