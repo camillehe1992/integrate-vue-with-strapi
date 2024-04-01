@@ -8,5 +8,6 @@
         "parser": "html"
       }
     }
-  ]
+  ],
+  "tabWidth": 2
 }
