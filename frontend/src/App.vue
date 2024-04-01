@@ -1,42 +1,22 @@
 <template>
-  <div id="app">
-    <RestaurantView></RestaurantView>
-    <ShoppingCartView></ShoppingCartView>
-  </div>
+  <v-layout class="rounded rounded-md">
+    <ApplicationBar />
+    <NavigationDrawer />
+    <MainContent />
+  </v-layout>
 </template>
 
 <script>
-import RestaurantView from "./views/RestaurantView.vue";
-import ShoppingCartView from "./views/ShoppingCartView.vue";
+import ApplicationBar from "@/views/ApplicationBar";
+import NavigationDrawer from "@/views/NavigationDrawer.vue";
+import MainContent from "@/views/MainContent.vue";
 
 export default {
   name: "App",
   components: {
-    RestaurantView,
-    ShoppingCartView,
+    ApplicationBar,
+    NavigationDrawer,
+    MainContent,
   },
 };
 </script>
-
-<!-- <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style> -->
