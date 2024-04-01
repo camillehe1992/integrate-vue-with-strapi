@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import ApplicationBar from "@/views/ApplicationBar";
-import NavigationDrawer from "@/views/NavigationDrawer.vue";
-import MainContent from "@/views/MainContent.vue";
+import ApplicationBar from "@/layouts/ApplicationBar";
+import NavigationDrawer from "@/layouts/NavigationDrawer.vue";
+import MainContent from "@/layouts/MainContent.vue";
 
 export default {
   name: "App",
