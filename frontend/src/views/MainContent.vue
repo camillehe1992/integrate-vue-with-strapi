@@ -1,7 +1,11 @@
 <template lang="">
   <v-main class="d-flex align-center justify-center" style="min-height: 300px">
-    <RestaurantView />
-    <ShoppingCartView />
+    <v-container fluid>
+      <RestaurantView />
+    </v-container>
+    <v-container fluid>
+      <ShoppingCartView />
+    </v-container>
   </v-main>
 </template>
 <script>
