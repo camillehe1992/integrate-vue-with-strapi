@@ -9,8 +9,8 @@
   </div>
 </template>
 <script>
-import RestaurantList from "../components/restaurant/RestaurantList.vue";
-import AddRestaurant from "../components/restaurant/AddRestaurant.vue";
+import RestaurantList from "@/components/restaurant/RestaurantList.vue";
+import AddRestaurant from "@/components/restaurant/AddRestaurant.vue";
 
 export default {
   name: "RestaurantView",

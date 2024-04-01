@@ -1,5 +1,5 @@
-<template>
-  <div id="app">
+<template lang="">
+  <div id="shopping">
     <h1>Shopping Cart Example</h1>
     <hr />
     <h2>Products</h2>
@@ -10,12 +10,15 @@
 </template>
 
 <script>
-import ProductList from "../components/shopping-cart/ProductList.vue";
-import ShoppingCart from "../components/shopping-cart/ShoppingCart.vue";
+import ProductList from "@/components/shopping-cart/ProductList.vue";
+import ShoppingCart from "@/components/shopping-cart/ShoppingCart.vue";
 
 export default {
   name: "ShoppingCartView",
-  components: {ProductList, ShoppingCart},
+  components: {
+    ProductList,
+    ShoppingCart,
+  },
 };
 </script>
 
