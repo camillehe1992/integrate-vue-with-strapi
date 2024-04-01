@@ -1,6 +1,8 @@
 <template lang="">
   <v-main class="d-flex" style="min-height: 300px">
-    <RouterView />
+    <v-container fluid>
+      <RouterView />
+    </v-container>
   </v-main>
 </template>
 <script>

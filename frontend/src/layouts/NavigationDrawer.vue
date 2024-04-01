@@ -1,5 +1,5 @@
 <template lang="">
-  <v-navigation-drawer floating permanent>
+  <v-navigation-drawer permanent>
     <v-list density="compact" nav>
       <v-list-item
         v-for="(route, index) in routes"

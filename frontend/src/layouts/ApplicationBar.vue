@@ -4,7 +4,7 @@
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
     </template>
 
-    <v-app-bar-title>Vue & Strapi Playground</v-app-bar-title>
+    <v-app-bar-title><strong>Vue & Strapi Playground</strong></v-app-bar-title>
 
     <v-spacer></v-spacer>
 
