@@ -12,9 +12,10 @@ const actions = {
     commit("setRestaurants", restaurants);
   },
 
-  async createRestaurant({state, commit}, payload) {
-    const response = await restaurant.createRestaurant(payload);
-    commit("setRestaurants", [response.data, ...state.all]);
+  async createRestaurant({commit}, payload) {
+    await restaurant.createRestaurant(payload);
+    const restaurants = await restaurant.getRestaurants();
+    commit("setRestaurants", restaurants);
   },
 
   async getAllCategories({commit}) {
