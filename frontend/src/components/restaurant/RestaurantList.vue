@@ -1,20 +1,19 @@
 <template lang="">
-  <div>
-    <div v-if="error">
-      {{ error }}
-    </div>
-    <ul v-else>
-      <li v-for="restaurant in restaurants" :key="restaurant.id">
-        {{ restaurant.attributes.name }}
-        <br />
-        {{ restaurant.attributes.description }}
-      </li>
-    </ul>
-  </div>
+  <v-container fluid class="pa-6">
+    <v-row no-gutters>
+      <v-col v-for="restaurant in restaurants" :key="restaurant.id">
+        <RestaurantCard :restaurant="restaurant.attributes" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 <script>
 import {mapState} from "vuex";
+import RestaurantCard from "./RestaurantCard.vue";
 export default {
+  components: {
+    RestaurantCard,
+  },
   data() {
     return {
       error: null,

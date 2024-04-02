@@ -1,5 +1,5 @@
 <template lang="">
-  <v-main class="d-flex" style="min-height: 300px">
+  <v-main class="d-flex bg-grey-lighten-2" style="min-height: 300px">
     <v-container fluid>
       <RouterView />
     </v-container>

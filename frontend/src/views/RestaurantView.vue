@@ -1,12 +1,12 @@
 <template lang="">
-  <div id="restaurant">
-    <h1>Restaurant Example</h1>
-    <hr />
-    <h2>Restaurants</h2>
+  <v-card>
+    <v-card-item>
+      <v-card-title>Restaurant Example</v-card-title>
+      <v-card-subtitle>Restaurants</v-card-subtitle>
+    </v-card-item>
     <RestaurantList />
-    <hr />
-    <AddRestaurant />
-  </div>
+  </v-card>
+  <AddRestaurant />
 </template>
 <script>
 import RestaurantList from "@/components/restaurant/RestaurantList.vue";
