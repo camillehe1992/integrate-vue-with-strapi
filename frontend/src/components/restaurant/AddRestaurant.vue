@@ -1,37 +1,43 @@
-<template lang="">
-  <div>
-    <div v-if="error">
-      {{ error }}
-    </div>
-    <form id="form" v-on:submit="handleSubmit" v-else>
-      <h2>Add Restaurant</h2>
-      <br />
+<template>
+  <div class="pa-4 text-center">
+    <v-dialog v-model="dialog" max-width="600">
+      <template v-slot:activator="{props: activatorProps}">
+        <v-btn
+          class="text-none font-weight-regular"
+          text="Add Restaurant"
+          variant="tonal"
+          v-bind="activatorProps"
+        ></v-btn>
+      </template>
 
-      <label for="name">Name</label>
-      <input required id="name" v-model="modifiedData.name" type="text" name="name" />
+      <v-card title="Add Restaurant">
+        <v-form ref="form" v-model="isValid" class="pa-4 pt-6">
+          <v-text-field v-model="modifiedData.name" label="Name*" required id="name"></v-text-field>
 
-      <label for="description">Description</label>
-      <input required id="description" v-model="modifiedData.description" type="text" name="description" />
-      <div>
-        <br />
-        <b>Select categories</b>
-        <br />
-        <div v-for="category in allCategories" :key="category.id">
-          <label>{{ category.attributes.name }}</label>
-          <input
-            type="checkbox"
-            :value="category.id"
+          <v-textarea v-model="modifiedData.description" label="Description*" variant="filled" required></v-textarea>
+          <v-autocomplete
             v-model="modifiedData.categories"
-            name="categories"
-            :id="category.id"
-          />
-        </div>
-      </div>
-      <br />
-      <input type="submit" value="Submit" />
-    </form>
+            :items="allCategories"
+            item-title="name"
+            item-value="id"
+            label="Categories"
+            auto-select-first
+            chips
+            multiple
+          ></v-autocomplete>
+        </v-form>
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn text="Close" variant="plain" @click="closeDialog"></v-btn>
+          <v-btn color="primary" text="Save" variant="tonal" @click="handleSubmit"></v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
+
 <script>
 import {mapState} from "vuex";
 export default {
@@ -42,19 +48,30 @@ export default {
         description: "",
         categories: [],
       },
-      error: null,
+      dialog: false,
+      isValid: false,
     };
   },
   computed: mapState({
-    allCategories: (state) => state.restaurants.allCategories,
+    allCategories: (state) => {
+      const categories = state.restaurants.allCategories;
+      return categories.map((category) => ({
+        id: category.id,
+        name: category.attributes.name,
+      }));
+    },
   }),
   created() {
     this.$store.dispatch("restaurants/getAllCategories");
   },
   methods: {
     handleSubmit: async function (e) {
+      this.dialog = false;
       e.preventDefault();
       this.$store.dispatch("restaurants/createRestaurant", this.modifiedData);
+    },
+    closeDialog: function () {
+      this.dialog = false;
     },
   },
 };

@@ -1,7 +1,7 @@
 <template lang="">
   <v-container fluid class="pa-6">
-    <v-row no-gutters>
-      <v-col v-for="restaurant in restaurants" :key="restaurant.id">
+    <v-row>
+      <v-col cols="4" v-for="restaurant in restaurants" :key="restaurant.id">
         <RestaurantCard :restaurant="restaurant.attributes" />
       </v-col>
     </v-row>
