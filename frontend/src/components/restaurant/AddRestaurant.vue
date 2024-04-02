@@ -2,17 +2,12 @@
   <div class="pa-4 text-center">
     <v-dialog v-model="dialog" max-width="600">
       <template v-slot:activator="{props: activatorProps}">
-        <v-btn
-          class="text-none font-weight-regular"
-          text="Add Restaurant"
-          variant="tonal"
-          v-bind="activatorProps"
-        ></v-btn>
+        <v-btn color="primary" variant="tonal" text="Add Restaurant" v-bind="activatorProps"></v-btn>
       </template>
 
       <v-card title="Add Restaurant">
         <v-form ref="form" v-model="isValid" class="pa-4 pt-6">
-          <v-text-field v-model="modifiedData.name" label="Name*" required id="name"></v-text-field>
+          <v-text-field v-model="modifiedData.name" label="Name*" required></v-text-field>
 
           <v-textarea v-model="modifiedData.description" label="Description*" variant="filled" required></v-textarea>
           <v-autocomplete
