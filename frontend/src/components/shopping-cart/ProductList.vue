@@ -1,35 +1,24 @@
 <template>
-  <div>
-    <div v-if="error">
-      {{ error }}
-    </div>
-    <ul v-else>
-      <li v-for="product in products" :key="product.id">
-        {{ product.title }} - {{ currency(product.price) }}
-        <br />
-        <button :disabled="!product.inventory" @click="addProductToCart(product)">Add to cart</button>
-      </li>
-    </ul>
-  </div>
+  <v-container fluid class="pa-6">
+    <v-row>
+      <v-col cols="4" v-for="product in products" :key="product.id">
+        <ProductCard :product="product" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import {mapState, mapActions} from "vuex";
-import {currency} from "../../api/currency";
+import {mapState} from "vuex";
+import ProductCard from "./ProductCard.vue";
 
 export default {
-  data() {
-    return {
-      error: null,
-    };
+  components: {
+    ProductCard,
   },
   computed: mapState({
     products: (state) => state.products.all,
   }),
-  methods: {
-    ...mapActions("cart", ["addProductToCart"]),
-    currency,
-  },
   created() {
     this.$store.dispatch("products/getAllProducts");
   },

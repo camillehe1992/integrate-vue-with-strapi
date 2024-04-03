@@ -1,7 +1,7 @@
 <template lang="">
   <v-card>
     <v-card-item>
-      <v-card-title>Restaurant Example </v-card-title>
+      <v-card-title>Restaurant Example</v-card-title>
       <v-card-subtitle>Restaurants</v-card-subtitle>
     </v-card-item>
     <RestaurantList />

@@ -1,23 +1,23 @@
 <template lang="">
-  <div id="shopping">
-    <h1>Shopping Cart Example</h1>
-    <hr />
-    <h2>Products</h2>
+  <v-card>
+    <v-card-item>
+      <v-card-title>Shopping Cart Example</v-card-title>
+      <v-card-subtitle>Products</v-card-subtitle>
+    </v-card-item>
     <ProductList />
-    <hr />
-    <ShoppingCart />
-  </div>
+  </v-card>
+  <!-- <ShoppingCart /> -->
 </template>
 
 <script>
 import ProductList from "@/components/shopping-cart/ProductList.vue";
-import ShoppingCart from "@/components/shopping-cart/ShoppingCart.vue";
+// import ShoppingCart from "@/components/shopping-cart/ShoppingCart.vue";
 
 export default {
   name: "ShoppingCartView",
   components: {
     ProductList,
-    ShoppingCart,
+    // ShoppingCart,
   },
 };
 </script>
