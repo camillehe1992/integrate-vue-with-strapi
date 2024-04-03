@@ -6,18 +6,18 @@
     </v-card-item>
     <ProductList />
   </v-card>
-  <!-- <ShoppingCart /> -->
+  <ShoppingCart />
 </template>
 
 <script>
 import ProductList from "@/components/shopping-cart/ProductList.vue";
-// import ShoppingCart from "@/components/shopping-cart/ShoppingCart.vue";
+import ShoppingCart from "@/components/shopping-cart/ShoppingCart.vue";
 
 export default {
   name: "ShoppingCartView",
   components: {
     ProductList,
-    // ShoppingCart,
+    ShoppingCart,
   },
 };
 </script>

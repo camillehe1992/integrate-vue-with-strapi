@@ -1,23 +1,38 @@
 <template>
-  <div>
-    <div v-if="error">
-      {{ error }}
-    </div>
-    <div v-else>
-      <h2>Your Cart</h2>
-      <p v-show="!products.length">
-        <i>Please add some products to cart.</i>
-      </p>
-      <ul>
-        <li v-for="product in products" :key="product.id">
-          {{ product.title }} - {{ currency(product.price) }} x {{ product.quantity }}
-        </li>
-      </ul>
-      <p>Total: {{ currency(total) }}</p>
-      <p><button :disabled="!products.length" @click="checkout(products)">Checkout</button></p>
-      <p v-show="checkoutStatus">Checkout {{ checkoutStatus }}.</p>
-    </div>
-  </div>
+  <v-container fluid>
+    <v-card class="mx-auto" max-width="450">
+      <v-card-item>
+        <v-card-title>Your Cart</v-card-title>
+        <v-card-subtitle>
+          <p v-show="!products.length">Please add some products to cart.</p>
+        </v-card-subtitle>
+      </v-card-item>
+      <v-card-item>
+        <v-list :items="items" lines="two" item-props>
+          <v-list-item
+            v-for="product in products"
+            :key="product.id"
+            :subtitle="currency(product.price)"
+            :title="product.title"
+          >
+            <template v-slot:append>
+              <v-btn size="small" icon="mdi-minus"></v-btn>
+              <v-chip class="ma-2" label> {{ product.quantity }} </v-chip>
+              <v-btn size="small" icon="mdi-plus"></v-btn>
+            </template>
+          </v-list-item>
+        </v-list>
+      </v-card-item>
+      <v-divider></v-divider>
+      <v-card-item>
+        <div class="d-flex">
+          <p class="me-auto">Total: {{ currency(total) }}</p>
+          <v-btn color="primary" :disabled="!products.length" @click="checkout(products)"> Checkout </v-btn>
+        </div>
+        <p v-show="checkoutStatus">Checkout {{ checkoutStatus }}.</p>
+      </v-card-item>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
