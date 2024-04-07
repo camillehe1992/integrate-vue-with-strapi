@@ -1,11 +1,11 @@
 <template>
-  <v-card color="primary" max-width="344" hover>
+  <v-card color="primary" max-width="344">
     <v-card-item>
       <v-card-title>{{ product.title }}</v-card-title>
       {{ currency(product.price) }}
     </v-card-item>
     <v-card-actions>
-      <v-btn outlined :disabled="!product.inventory" @click="addProductToCart(product)">Add to cart</v-btn>
+      <v-btn :disabled="!product.inventory" @click="addProductToCart(product)">Add to cart</v-btn>
     </v-card-actions>
   </v-card>
 </template>
