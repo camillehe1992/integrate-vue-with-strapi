@@ -1,9 +1,12 @@
 <template>
-  <v-card class="mx-auto" max-width="400">
-    <v-img class="align-end text-white" height="200" :src="book.image" cover> </v-img>
+  <v-card class="mx-auto" width="250">
+    <div align="center">
+      <v-img class="text-white" height="200" width="150" :src="book.image" cover> </v-img>
+    </div>
 
     <v-card-item>
-      <v-card-title>{{ book.title }}</v-card-title>
+      <v-card-title d-flex class="text-subtitle-2 font-weight-bold">{{ book.title }}</v-card-title>
+
       <v-card-subtitle>
         <span class="me-1">Author : {{ book.authors }}</span>
       </v-card-subtitle>
@@ -23,10 +26,6 @@
       </v-row>
     </v-card-text>
     <v-card-item>
-      <v-chip class="ma-2" color="pink" label>
-        <v-icon icon="mdi-calendar-range" start></v-icon>
-        {{ book.timestamp }}
-      </v-chip>
       <v-chip class="ma-2" color="secondary" label>
         <v-icon icon="mdi-web" start></v-icon>
         {{ book.language_code }}
