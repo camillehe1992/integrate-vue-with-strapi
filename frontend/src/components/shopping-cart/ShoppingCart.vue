@@ -16,9 +16,9 @@
             :title="product.title"
           >
             <template v-slot:append>
-              <v-btn size="small" icon="mdi-minus"></v-btn>
+              <v-btn variant="plain" size="small" icon="mdi-minus"></v-btn>
               <v-chip class="ma-2" label> {{ product.quantity }} </v-chip>
-              <v-btn size="small" icon="mdi-plus"></v-btn>
+              <v-btn variant="plain" size="small" icon="mdi-plus"></v-btn>
             </template>
           </v-list-item>
         </v-list>
