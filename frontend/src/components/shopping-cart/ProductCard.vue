@@ -1,11 +1,16 @@
 <template>
-  <v-card height="320">
+  <v-card class="mx-auto">
     <v-card-item>
-      <v-card-title>{{ product.title }}</v-card-title>
+      <div align="center">
+        <v-img class="text-white" src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" cover> </v-img>
+      </div>
+    </v-card-item>
+    <v-card-item>
+      <v-card-title d-flex class="text-subtitle-2 font-weight-bold">{{ product.title }}</v-card-title>
       {{ currency(product.price) }}
     </v-card-item>
     <v-card-actions>
-      <v-btn :disabled="!product.inventory" @click="addProductToCart(product)">Add to cart</v-btn>
+      <v-btn variant="outlined" :disabled="!product.inventory" @click="addProductToCart(product)">Add to cart</v-btn>
     </v-card-actions>
   </v-card>
 </template>

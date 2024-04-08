@@ -1,12 +1,17 @@
 <template lang="">
-  <v-card height="320">
+  <v-card class="mx-auto" height="400">
     <v-card-item>
-      <v-card-title>{{ restaurant.name }}</v-card-title>
+      <div align="center">
+        <v-img class="text-white" src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" cover> </v-img>
+      </div>
+    </v-card-item>
+    <v-card-item>
+      <v-card-title d-flex class="text-subtitle-2 font-weight-bold">{{ restaurant.name }}</v-card-title>
+
       <v-chip v-for="category in restaurant.categories.data" :key="category.id" class="ma-2" label>
         {{ category.attributes.name }}
       </v-chip>
     </v-card-item>
-
     <v-card-text> {{ restaurant.description }} </v-card-text>
   </v-card>
 </template>
