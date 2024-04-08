@@ -1,9 +1,10 @@
 <template>
-  <v-card class="mx-auto" width="250">
-    <div align="center">
-      <v-img class="text-white" height="200" width="150" :src="book.image" cover> </v-img>
-    </div>
-
+  <v-card class="mx-auto">
+    <v-card-item>
+      <div align="center">
+        <v-img class="text-white" height="320" :src="book.image" cover> </v-img>
+      </div>
+    </v-card-item>
     <v-card-item>
       <v-card-title d-flex class="text-subtitle-2 font-weight-bold">{{ book.title }}</v-card-title>
 
@@ -25,12 +26,12 @@
         <div class="text-grey ms-4">{{ book.average_rating }} ({{ book.ratings_count }})</div>
       </v-row>
     </v-card-text>
-    <v-card-item>
-      <v-chip class="ma-2" color="secondary" label>
+    <!-- <v-card-item>
+      <v-chip color="secondary" label>
         <v-icon icon="mdi-web" start></v-icon>
         {{ book.language_code }}
       </v-chip>
-    </v-card-item>
+    </v-card-item> -->
   </v-card>
 </template>
 <script>

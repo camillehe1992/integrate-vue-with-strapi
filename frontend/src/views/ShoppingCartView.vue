@@ -3,6 +3,7 @@
     <v-card-item>
       <v-card-title>Shopping Cart Example</v-card-title>
       <v-card-subtitle>Products</v-card-subtitle>
+      <v-divider></v-divider>
     </v-card-item>
     <ProductList />
   </v-card>

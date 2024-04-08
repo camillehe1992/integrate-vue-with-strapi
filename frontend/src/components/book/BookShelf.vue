@@ -1,9 +1,9 @@
 <template lang="">
-  <v-container fluid class="pa-6">
-    <v-data-iterator :items="books" :items-per-page="8">
+  <v-container fluid>
+    <v-data-iterator :items="books" :items-per-page="4">
       <template v-slot:default="{items}">
         <v-row>
-          <v-col cols="auto" v-for="item in items" :key="item.id">
+          <v-col cols="3" v-for="item in items" :key="item.id">
             <BookCard :book="item.raw" />
           </v-col>
         </v-row>

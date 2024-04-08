@@ -1,5 +1,5 @@
 <template>
-  <v-card color="primary" max-width="344">
+  <v-card height="320">
     <v-card-item>
       <v-card-title>{{ product.title }}</v-card-title>
       {{ currency(product.price) }}

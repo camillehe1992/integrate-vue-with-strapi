@@ -1,5 +1,5 @@
 <template lang="">
-  <v-card color="primary" max-width="344" min-height="200">
+  <v-card height="320">
     <v-card-item>
       <v-card-title>{{ restaurant.name }}</v-card-title>
       <v-chip v-for="category in restaurant.categories.data" :key="category.id" class="ma-2" label>

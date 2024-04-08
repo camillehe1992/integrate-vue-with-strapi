@@ -1,7 +1,7 @@
 <template>
-  <v-container fluid class="pa-6">
+  <v-container fluid>
     <v-row>
-      <v-col cols="4" v-for="product in products" :key="product.id">
+      <v-col cols="3" v-for="product in products" :key="product.id">
         <ProductCard :product="product" />
       </v-col>
     </v-row>

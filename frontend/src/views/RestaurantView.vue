@@ -3,6 +3,7 @@
     <v-card-item>
       <v-card-title>Restaurant Example</v-card-title>
       <v-card-subtitle>Restaurants</v-card-subtitle>
+      <v-divider></v-divider>
     </v-card-item>
     <RestaurantList />
   </v-card>
