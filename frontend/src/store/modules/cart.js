@@ -24,6 +24,9 @@ const getters = {
       return total + product.price * product.quantity;
     }, 0);
   },
+  cartTotalCount: (state, getters) => {
+    return getters.cartProducts.length;
+  },
 };
 
 const actions = {

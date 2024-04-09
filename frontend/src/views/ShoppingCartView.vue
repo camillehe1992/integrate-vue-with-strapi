@@ -1,13 +1,19 @@
 <template lang="">
   <v-card>
     <v-card-item>
-      <v-card-title>Shopping Cart Example</v-card-title>
-      <v-card-subtitle>Products</v-card-subtitle>
+      <v-row>
+        <v-col col="10">
+          <v-card-title>Shopping Cart Example</v-card-title>
+          <v-card-subtitle>Products</v-card-subtitle>
+        </v-col>
+        <v-col col="2" class="d-flex flex-row-reverse">
+          <ShoppingCart />
+        </v-col>
+      </v-row>
       <v-divider></v-divider>
     </v-card-item>
     <ProductList />
   </v-card>
-  <ShoppingCart />
 </template>
 
 <script>
@@ -19,6 +25,11 @@ export default {
   components: {
     ProductList,
     ShoppingCart,
+  },
+  data() {
+    return {
+      count: 3,
+    };
   },
 };
 </script>
