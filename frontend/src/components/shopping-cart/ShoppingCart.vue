@@ -23,9 +23,15 @@
               :title="product.name"
             >
               <template v-slot:append>
-                <v-btn variant="plain" size="small" icon="mdi-minus"></v-btn>
+                <v-btn variant="plain" size="small" icon="mdi-minus" @click="decrementItemQuantity(product)"></v-btn>
                 <v-chip class="ma-2" label> {{ product.quantity }} </v-chip>
-                <v-btn variant="plain" size="small" icon="mdi-plus"></v-btn>
+                <v-btn
+                  variant="plain"
+                  size="small"
+                  icon="mdi-plus"
+                  :disabled="noInventory(product)"
+                  @click="incrementItemQuantity(product)"
+                ></v-btn>
               </template>
             </v-list-item>
           </v-list>
@@ -56,6 +62,7 @@ export default {
   computed: {
     ...mapState({
       checkoutStatus: (state) => state.cart.checkoutStatus,
+      allProducts: (state) => state.products.all,
     }),
     ...mapGetters("cart", {
       products: "cartProducts",
@@ -67,6 +74,20 @@ export default {
     currency,
     checkout(products) {
       this.$store.dispatch("cart/checkout", products);
+    },
+    incrementItemQuantity(product) {
+      const findProduct = this.allProducts.find((item) => item.id == product.id);
+      if (findProduct) {
+        this.$store.dispatch("cart/addProductToCart", findProduct);
+      }
+    },
+    decrementItemQuantity(product) {
+      const findProduct = this.allProducts.find((item) => item.id == product.id);
+      this.$store.dispatch("cart/reduceProductFromCart", findProduct);
+    },
+    noInventory(product) {
+      const findProduct = this.allProducts.find((item) => item.id == product.id);
+      return findProduct.attributes.inventory == 0;
     },
   },
 };

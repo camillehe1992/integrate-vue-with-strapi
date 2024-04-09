@@ -33,7 +33,6 @@ const getters = {
 
 const actions = {
   addProductToCart({state, commit}, product) {
-    console.log(product);
     commit("setCheckoutStatus", null);
     if (product.attributes.inventory > 0) {
       const cartItem = state.items.find((item) => item.id === product.id);
@@ -45,6 +44,17 @@ const actions = {
       // remove 1 item from stock
       commit("products/decrementProductInventory", {id: product.id}, {root: true});
     }
+  },
+  reduceProductFromCart({state, commit}, product) {
+    commit("setCheckoutStatus", null);
+    const cartItem = state.items.find((item) => item.id === product.id);
+    commit("decrementItemQuantity", cartItem);
+
+    if (cartItem.quantity == 0) {
+      commit("removeProductFromCart", {id: product.id});
+    }
+    // add 1 item to stock
+    commit("products/incrementProductInventory", {id: product.id}, {root: true});
   },
   async checkout({commit, state}, products) {
     const savedCartItems = [...state.items];
@@ -70,9 +80,19 @@ const mutations = {
       quantity: 1,
     });
   },
+  removeProductFromCart(state, {id}) {
+    const index = state.items.findIndex((item) => item.id === id);
+    if (index != -1) {
+      state.items.splice(index, 1);
+    }
+  },
   incrementItemQuantity(state, {id}) {
     const cartItem = state.items.find((item) => item.id === id);
     cartItem.quantity++;
+  },
+  decrementItemQuantity(state, {id}) {
+    const cartItem = state.items.find((item) => item.id === id);
+    cartItem.quantity--;
   },
   setCartItems(state, {items}) {
     state.items = items;

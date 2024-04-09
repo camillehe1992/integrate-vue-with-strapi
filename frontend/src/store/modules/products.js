@@ -22,6 +22,10 @@ const mutations = {
     const product = state.all.find((product) => product.id === id);
     product.attributes.inventory--;
   },
+  incrementProductInventory(state, {id}) {
+    const product = state.all.find((product) => product.id === id);
+    product.attributes.inventory++;
+  },
 };
 
 export default {
