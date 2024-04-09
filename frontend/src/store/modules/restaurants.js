@@ -1,6 +1,6 @@
 import restaurant from "@/api/restaurant";
 
-const data = () => ({
+const state = () => ({
   all: [],
   allCategories: [],
   newRestaurant: null,
@@ -35,7 +35,7 @@ const mutations = {
 
 export default {
   namespaced: true,
-  data,
+  state,
   actions,
   mutations,
 };

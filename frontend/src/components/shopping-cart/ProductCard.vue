@@ -2,11 +2,11 @@
   <v-card class="mx-auto">
     <v-card-item>
       <div align="center">
-        <v-img class="text-white" src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" cover> </v-img>
+        <v-img class="text-white" height="300" :src="apiUrl + product.image.data.attributes.url" cover> </v-img>
       </div>
     </v-card-item>
     <v-card-item>
-      <v-card-title d-flex class="text-subtitle-2 font-weight-bold">{{ product.title }}</v-card-title>
+      <v-card-title d-flex class="text-subtitle-2 font-weight-bold">{{ product.name }}</v-card-title>
       {{ currency(product.price) }}
     </v-card-item>
     <v-card-actions>
@@ -20,6 +20,11 @@ import {mapActions} from "vuex";
 import {currency} from "../../api/currency";
 export default {
   name: "ProductCard",
+  data() {
+    return {
+      apiUrl: process.env.VUE_APP_BACKEND_API_HOST,
+    };
+  },
   props: {
     product: Object,
   },

@@ -1,16 +1,28 @@
-/**
- * Mocking client-server processing
- */
-const _products = [
-  {id: 1, title: "iPad 4 Mini", price: 500.01, inventory: 2},
-  {id: 2, title: "H&M T-Shirt White", price: 10.99, inventory: 10},
-  {id: 3, title: "Charli XCX - Sucker CD", price: 19.99, inventory: 5},
-];
+const HEADERS = {"Content-Type": "application/json"};
+
+const checkStatus = (resp) => {
+  if (resp.status >= 200 && resp.status < 300) return resp;
+  return this.parseJSON(resp).then((resp) => {
+    throw resp;
+  });
+};
+const parseJSON = (resp) => (resp.json ? resp.json() : resp);
 
 export default {
   async getProducts() {
-    await wait(100);
-    return _products;
+    try {
+      const response = await fetch("http://localhost:1337/api/products?populate=*", {
+        method: "GET",
+        headers: HEADERS,
+      })
+        .then(checkStatus)
+        .then(parseJSON);
+      console.log("getProducts", response);
+      return response?.data;
+    } catch (error) {
+      console.error("getProducts", error);
+      throw error;
+    }
   },
 
   async buyProducts() {

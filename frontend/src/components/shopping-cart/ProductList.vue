@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row>
       <v-col cols="3" v-for="product in products" :key="product.id">
-        <ProductCard :product="product" />
+        <ProductCard :product="product.attributes" />
       </v-col>
     </v-row>
   </v-container>
@@ -11,7 +11,6 @@
 <script>
 import {mapState} from "vuex";
 import ProductCard from "./ProductCard.vue";
-
 export default {
   components: {
     ProductCard,

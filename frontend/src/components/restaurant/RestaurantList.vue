@@ -14,11 +14,6 @@ export default {
   components: {
     RestaurantCard,
   },
-  data() {
-    return {
-      error: null,
-    };
-  },
   computed: mapState({
     restaurants: (state) => state.restaurants.all,
   }),

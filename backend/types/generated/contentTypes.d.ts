@@ -620,6 +620,29 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: "products";
+  info: {
+    singularName: "product";
+    pluralName: "products";
+    displayName: "Product";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
+    price: Attribute.Decimal;
+    inventory: Attribute.Integer;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<"api::product.product", "oneToOne", "admin::user"> & Attribute.Private;
+    updatedBy: Attribute.Relation<"api::product.product", "oneToOne", "admin::user"> & Attribute.Private;
+  };
+}
+
 export interface ApiRestaurantRestaurant extends Schema.CollectionType {
   collectionName: "restaurants";
   info: {
@@ -663,6 +686,7 @@ declare module "@strapi/types" {
       "plugin::users-permissions.user": PluginUsersPermissionsUser;
       "plugin::i18n.locale": PluginI18NLocale;
       "api::category.category": ApiCategoryCategory;
+      "api::product.product": ApiProductProduct;
       "api::restaurant.restaurant": ApiRestaurantRestaurant;
     }
   }
