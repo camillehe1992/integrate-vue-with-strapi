@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row>
       <v-col cols="3" v-for="product in products" :key="product.id">
-        <ProductCard :product="product.attributes" />
+        <ProductCard :product="product" />
       </v-col>
     </v-row>
   </v-container>

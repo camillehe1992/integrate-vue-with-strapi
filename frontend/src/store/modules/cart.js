@@ -12,8 +12,8 @@ const getters = {
       const product = rootState.products.all.find((product) => product.id === id);
       return {
         id: product.id,
-        title: product.title,
-        price: product.price,
+        name: product.attributes.name,
+        price: product.attributes.price,
         quantity,
       };
     });
@@ -25,14 +25,17 @@ const getters = {
     }, 0);
   },
   cartTotalCount: (state, getters) => {
-    return getters.cartProducts.length;
+    return getters.cartProducts.reduce((total, product) => {
+      return total + product.quantity;
+    }, 0);
   },
 };
 
 const actions = {
   addProductToCart({state, commit}, product) {
+    console.log(product);
     commit("setCheckoutStatus", null);
-    if (product.inventory > 0) {
+    if (product.attributes.inventory > 0) {
       const cartItem = state.items.find((item) => item.id === product.id);
       if (!cartItem) {
         commit("pushProductToCart", {id: product.id});

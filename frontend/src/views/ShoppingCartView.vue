@@ -26,11 +26,6 @@ export default {
     ProductList,
     ShoppingCart,
   },
-  data() {
-    return {
-      count: 3,
-    };
-  },
 };
 </script>
 

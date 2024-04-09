@@ -20,7 +20,7 @@
               v-for="product in products"
               :key="product.id"
               :subtitle="currency(product.price)"
-              :title="product.title"
+              :title="product.name"
             >
               <template v-slot:append>
                 <v-btn variant="plain" size="small" icon="mdi-minus"></v-btn>
@@ -32,11 +32,9 @@
         </v-card-item>
         <v-divider></v-divider>
         <v-card-item>
-          <div class="d-flex">
-            <p class="me-auto">Total: {{ currency(total) }}</p>
-            <v-btn class="align-center" color="primary" :disabled="!products.length" @click="checkout(products)">
-              Checkout
-            </v-btn>
+          <div class="d-flex align-center">
+            <p class="me-auto pa-4">Total: {{ currency(total) }}</p>
+            <v-btn color="primary" :disabled="!products.length" @click="checkout(products)"> Checkout </v-btn>
           </div>
           <p v-show="checkoutStatus">Checkout {{ checkoutStatus }}.</p>
         </v-card-item>

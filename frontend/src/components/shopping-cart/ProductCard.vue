@@ -2,15 +2,18 @@
   <v-card class="mx-auto">
     <v-card-item>
       <div align="center">
-        <v-img class="text-white" height="300" :src="apiUrl + product.image.data.attributes.url" cover> </v-img>
+        <v-img class="text-white" height="300" :src="apiUrl + product.attributes.image.data.attributes.url" cover>
+        </v-img>
       </div>
     </v-card-item>
     <v-card-item>
-      <v-card-title d-flex class="text-subtitle-2 font-weight-bold">{{ product.name }}</v-card-title>
-      {{ currency(product.price) }}
+      <v-card-title d-flex class="text-subtitle-2 font-weight-bold">{{ product.attributes.name }}</v-card-title>
+      {{ currency(product.attributes.price) }}
     </v-card-item>
     <v-card-actions>
-      <v-btn variant="outlined" :disabled="!product.inventory" @click="addProductToCart(product)">Add to cart</v-btn>
+      <v-btn variant="outlined" :disabled="!product.attributes.inventory" @click="addProductToCart(product)"
+        >Add to cart</v-btn
+      >
     </v-card-actions>
   </v-card>
 </template>
