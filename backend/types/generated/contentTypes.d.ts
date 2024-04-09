@@ -635,6 +635,7 @@ export interface ApiRestaurantRestaurant extends Schema.CollectionType {
     name: Attribute.String & Attribute.Required & Attribute.Unique;
     categories: Attribute.Relation<"api::restaurant.restaurant", "manyToMany", "api::category.category">;
     description: Attribute.Text & Attribute.Required;
+    image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

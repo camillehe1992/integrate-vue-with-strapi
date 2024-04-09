@@ -27,7 +27,7 @@ export default {
 
   async createRestaurant(restaurantData) {
     try {
-      const response = await fetch("http://localhost:1337/api/restaurants", {
+      const response = await fetch("http://localhost:1337/api/restaurants?populate=*", {
         method: "POST",
         headers: HEADERS,
         body: JSON.stringify({data: restaurantData}),
