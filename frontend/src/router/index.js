@@ -1,46 +1,50 @@
 import {createRouter, createWebHistory} from "vue-router";
-import HomeView from "@/views/HomeView.vue";
+// Pages
+import HomePage from "@/pages/HomePage.vue";
+import LoginPage from "@/pages/LoginPage.vue";
+// Views
 import AboutView from "@/views/AboutView.vue";
 import BookView from "@/views/BookView.vue";
-import LoginPage from "@/pages/LoginPage.vue";
-import RestaurantView from "@/views/RestaurantView.vue";
 import OrderView from "@/views/OrderView.vue";
+import RestaurantView from "@/views/RestaurantView.vue";
 import ShoppingCartView from "@/views/ShoppingCartView.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
-    component: HomeView,
-  },
-  {
-    path: "/login",
-    name: "login",
-    component: LoginPage,
+    component: HomePage,
+    children: [
+      {
+        path: "/book",
+        name: "book",
+        component: BookView,
+      },
+      {
+        path: "restaurant",
+        name: "restaurant",
+        component: RestaurantView,
+      },
+      {
+        path: "/order",
+        name: "order",
+        component: OrderView,
+      },
+      {
+        path: "/shopping",
+        name: "shopping",
+        component: ShoppingCartView,
+      },
+    ],
   },
   {
     path: "/home",
     redirect: "/",
   },
   {
-    path: "/book",
-    name: "book",
-    component: BookView,
-  },
-  {
-    path: "/restaurant",
-    name: "restaurant",
-    component: RestaurantView,
-  },
-  {
-    path: "/order",
-    name: "order",
-    component: OrderView,
-  },
-  {
-    path: "/shopping",
-    name: "shopping",
-    component: ShoppingCartView,
+    path: "/login",
+    name: "login",
+    component: LoginPage,
   },
   {
     path: "/about",
