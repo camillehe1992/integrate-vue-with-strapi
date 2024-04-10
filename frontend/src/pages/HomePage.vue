@@ -1,8 +1,8 @@
 <template>
-  <v-layout class="rounded rounded-md">
+  <v-layout class="rounded rounded-md ma-3">
     <ApplicationBar />
     <NavigationDrawer />
-    <v-main class="bg-grey-lighten-3">
+    <v-main>
       <RouterView />
     </v-main>
   </v-layout>

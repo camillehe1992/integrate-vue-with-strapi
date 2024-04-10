@@ -5,6 +5,7 @@ import HomePage from "@/pages/HomePage.vue";
 import LoginPage from "@/pages/LoginPage.vue";
 // Views
 import BookView from "@/views/BookView.vue";
+import EventView from "@/views/EventView.vue";
 import OrderView from "@/views/OrderView.vue";
 import RestaurantView from "@/views/RestaurantView.vue";
 import ShoppingCartView from "@/views/ShoppingCartView.vue";
@@ -34,6 +35,11 @@ const routes = [
         path: "/shopping",
         name: "shopping",
         component: ShoppingCartView,
+      },
+      {
+        path: "/event",
+        name: "event",
+        component: EventView,
       },
     ],
   },

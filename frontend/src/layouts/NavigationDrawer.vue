@@ -23,7 +23,8 @@ export default {
         {icon: "mdi-bookshelf", title: "Book", value: "book", to: "/book"},
         {icon: "mdi-silverware-fork-knife", title: "Restaurant", value: "restaurant", to: "/restaurant"},
         {icon: "mdi-shopping", title: "Shopping", value: "shopping", to: "/shopping"},
-        {icon: "mdi-order-bool-descending", title: "Orders", value: "order", to: "/order"},
+        {icon: "mdi-order-bool-descending", title: "Order", value: "order", to: "/order"},
+        {icon: "mdi-calendar", title: "Event", value: "event", to: "/event"},
       ],
     };
   },
