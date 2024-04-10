@@ -13,7 +13,7 @@ import ApplicationBar from "@/layouts/ApplicationBar";
 import NavigationDrawer from "@/layouts/NavigationDrawer.vue";
 
 export default {
-  name: "HomeView",
+  name: "HomePage",
   components: {
     ApplicationBar,
     NavigationDrawer,

@@ -1,9 +1,9 @@
 import {createRouter, createWebHistory} from "vue-router";
 // Pages
+import AboutPage from "@/pages/AboutPage.vue";
 import HomePage from "@/pages/HomePage.vue";
 import LoginPage from "@/pages/LoginPage.vue";
 // Views
-import AboutView from "@/views/AboutView.vue";
 import BookView from "@/views/BookView.vue";
 import OrderView from "@/views/OrderView.vue";
 import RestaurantView from "@/views/RestaurantView.vue";
@@ -49,7 +49,7 @@ const routes = [
   {
     path: "/about",
     name: "about",
-    component: AboutView,
+    component: AboutPage,
   },
 ];
 

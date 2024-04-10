@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <v-container fluid class="hello" align="center">
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
@@ -77,14 +77,16 @@
         <a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a>
       </li>
     </ul>
-  </div>
+  </v-container>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld",
-  props: {
-    msg: String,
+  name: "AboutPage",
+  data() {
+    return {
+      msg: "Vue & Strapi Playground",
+    };
   },
 };
 </script>
