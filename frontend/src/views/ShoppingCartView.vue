@@ -1,7 +1,7 @@
 <template lang="">
   <v-card>
     <v-card-item>
-      <v-row>
+      <v-row align="center">
         <v-col col="10">
           <v-card-title>Shopping Cart Example</v-card-title>
           <v-card-subtitle>Products</v-card-subtitle>

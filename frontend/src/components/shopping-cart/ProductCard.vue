@@ -11,7 +11,11 @@
       {{ currency(product.attributes.price) }}
     </v-card-item>
     <v-card-actions>
-      <v-btn variant="outlined" :disabled="!product.attributes.inventory" @click="addProductToCart(product)"
+      <v-btn
+        color="primary"
+        variant="tonal"
+        :disabled="!product.attributes.inventory"
+        @click="addProductToCart(product)"
         >Add to cart</v-btn
       >
     </v-card-actions>

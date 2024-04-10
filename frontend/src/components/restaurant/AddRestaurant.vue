@@ -1,5 +1,5 @@
 <template>
-  <div class="pa-4 text-center">
+  <div>
     <v-dialog v-model="dialog" max-width="600">
       <template v-slot:activator="{props: activatorProps}">
         <v-btn color="primary" text="Add Restaurant" v-bind="activatorProps"></v-btn>

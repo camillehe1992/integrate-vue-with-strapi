@@ -1,6 +1,6 @@
 <template>
-  <div class="text-center">
-    <v-btn variant="text" class="text-none" stacked @click="dialog = true">
+  <div>
+    <v-btn variant="text" class="text-none" @click="dialog = true">
       <v-badge color="error" :content="totalCount">
         <v-icon color="primary" size="large">mdi-cart</v-icon>
       </v-badge>
