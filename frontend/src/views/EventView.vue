@@ -10,6 +10,7 @@
 </template>
 <script>
 import EventList from "@/components/event/EventList.vue";
+
 export default {
   name: "OrderView",
   components: {

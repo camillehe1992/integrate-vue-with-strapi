@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ApplicationBar from "@/layouts/ApplicationBar";
+import ApplicationBar from "@/layouts/ApplicationBar.vue";
 import NavigationDrawer from "@/layouts/NavigationDrawer.vue";
 
 export default {

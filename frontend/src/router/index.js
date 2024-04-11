@@ -10,6 +10,9 @@ import OrderView from "@/views/OrderView.vue";
 import RestaurantView from "@/views/RestaurantView.vue";
 import ShoppingCartView from "@/views/ShoppingCartView.vue";
 
+// Components
+import SingleEvent from "@/components/event/SingleEvent.vue";
+
 const routes = [
   {
     path: "/",
@@ -40,6 +43,13 @@ const routes = [
         path: "/event",
         name: "event",
         component: EventView,
+        children: [
+          {
+            path: "/event/:id",
+            component: SingleEvent,
+            props: true,
+          },
+        ],
       },
     ],
   },
