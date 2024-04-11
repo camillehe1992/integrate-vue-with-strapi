@@ -3,7 +3,7 @@
     <v-container v-if="event">
       <v-row>
         <v-col>
-          <v-btn icon="mdi-arrow-left" color="primary" variant="tonal"> </v-btn>
+          <v-btn to="/event" icon="mdi-arrow-left" color="primary" variant="tonal"> </v-btn>
         </v-col>
       </v-row>
       <v-row>

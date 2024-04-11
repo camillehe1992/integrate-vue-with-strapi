@@ -1,5 +1,5 @@
 <template lang="">
-  <v-card color="secondary" class="mx-auto">
+  <v-card color="info" class="mx-auto">
     <v-card-item>
       <v-card-title class="text-h6 mb-1"> {{ event.name }}</v-card-title>
     </v-card-item>
@@ -16,7 +16,7 @@
       </div>
     </v-card-text>
     <v-card-actions>
-      <v-btn class="success" variant="tonal" :to="'/event/' + event.id"> More </v-btn>
+      <v-btn class="info" variant="tonal" :to="'/event/' + event.id"> More </v-btn>
     </v-card-actions>
   </v-card>
 </template>
