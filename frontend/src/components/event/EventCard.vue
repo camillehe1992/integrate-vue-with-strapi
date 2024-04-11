@@ -16,9 +16,7 @@
       </div>
     </v-card-text>
     <v-card-actions>
-      <router-link :to="'/event/' + event.id">
-        <v-btn variant="text"> More </v-btn>
-      </router-link>
+      <v-btn class="success" variant="tonal" :to="'/event/' + event.id"> More </v-btn>
     </v-card-actions>
   </v-card>
 </template>

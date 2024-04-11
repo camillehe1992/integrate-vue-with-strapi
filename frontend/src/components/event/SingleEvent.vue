@@ -1,7 +1,7 @@
 <template>
   <div class="event-single">
-    Single Event
-    <section class="hero is-primary">
+    Event {{ id }}
+    <!-- <section class="hero is-primary">
       <div class="hero-body">
         <div class="container">
           <h1 class="title">{{ event.name }}</h1>
@@ -24,7 +24,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 <script>
@@ -34,7 +34,7 @@ export default {
     return {};
   },
   props: {
-    event: Object,
+    id: String,
   },
 };
 </script>

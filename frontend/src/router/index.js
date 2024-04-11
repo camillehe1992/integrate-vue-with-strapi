@@ -43,13 +43,11 @@ const routes = [
         path: "/event",
         name: "event",
         component: EventView,
-        children: [
-          {
-            path: "/event/:id",
-            component: SingleEvent,
-            props: true,
-          },
-        ],
+      },
+      {
+        path: "/event/:id",
+        component: SingleEvent,
+        props: true,
       },
     ],
   },
