@@ -16,14 +16,9 @@
         ></v-text-field>
 
         <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
-          Password
+          New Password
 
-          <a
-            class="text-caption text-decoration-none text-blue"
-            href="/reset-password"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+          <a class="text-caption text-decoration-none text-blue" href="#" rel="noopener noreferrer" target="_blank">
             Forgot login password?</a
           >
         </div>
@@ -42,21 +37,15 @@
         ></v-text-field>
 
         <v-btn :disabled="!form" :loading="loading" color="info" size="large" type="submit" variant="elevated" block>
-          Log In
+          Reset Password
         </v-btn>
-
-        <v-card-text class="text-center">
-          <a class="text-blue text-decoration-none" href="/signup" rel="noopener noreferrer">
-            Sign up now <v-icon icon="mdi-chevron-right"></v-icon>
-          </a>
-        </v-card-text>
       </v-form>
     </v-card>
   </v-sheet>
 </template>
 <script>
 export default {
-  name: "LoginPage",
+  name: "ResetPasswordPage",
   data() {
     return {
       form: false,

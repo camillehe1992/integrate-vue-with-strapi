@@ -3,6 +3,8 @@ import {createRouter, createWebHistory} from "vue-router";
 import AboutPage from "@/pages/AboutPage.vue";
 import HomePage from "@/pages/HomePage.vue";
 import LoginPage from "@/pages/LoginPage.vue";
+import SignupPage from "@/pages/SignupPage.vue";
+import ResetPasswordPage from "@/pages/ResetPasswordPage.vue";
 // Views
 import BookView from "@/views/BookView.vue";
 import EventView from "@/views/EventView.vue";
@@ -59,6 +61,16 @@ const routes = [
     path: "/login",
     name: "login",
     component: LoginPage,
+  },
+  {
+    path: "/signup",
+    name: "signup",
+    component: SignupPage,
+  },
+  {
+    path: "/reset-password",
+    name: "resetpassword",
+    component: ResetPasswordPage,
   },
   {
     path: "/about",
