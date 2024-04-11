@@ -18,12 +18,7 @@
         <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
           Password
 
-          <a
-            class="text-caption text-decoration-none text-blue"
-            href="/reset-password"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+          <a class="text-caption text-decoration-none text-blue" href="/reset-password" rel="noopener noreferrer">
             Forgot login password?</a
           >
         </div>

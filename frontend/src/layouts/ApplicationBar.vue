@@ -10,6 +10,7 @@
     <v-btn class="text-none text-subtitle-1" to="/"> Home </v-btn>
     <v-btn class="text-none text-subtitle-1" to="/about"> About </v-btn>
     <v-btn class="text-none text-subtitle-1" to="/login"> Log In </v-btn>
+    <v-btn class="text-none text-subtitle-1" to="/signup"> Sign Up </v-btn>
   </v-app-bar>
 </template>
 <script>
