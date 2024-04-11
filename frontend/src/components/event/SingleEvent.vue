@@ -1,31 +1,54 @@
 <template>
-  <div class="event-single">
-    Event {{ id }}
-    <section class="hero is-primary">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">{{ event.name }}</h1>
-          <h2 class="subtitle">
-            <strong>Date:</strong> {{ event.date }}
-            <br />
-            <strong>Time:</strong> {{ event.time }}
-          </h2>
-        </div>
-      </div>
-    </section>
-    <section class="event-content">
-      <div class="container">
-        <p class="is-size-4 description">{{ event.description }}</p>
-        <p class="is-size-5"><strong>Location:</strong> {{ event.location }}</p>
-        <p class="is-size-5"><strong>Category:</strong> {{ event.category }}</p>
-        <div class="event-images columns is-multiline has-text-centered">
-          <div v-for="image in event.images" :key="image.id" class="column is-one-third">
-            <img :src="image" :alt="event.name" />
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+  <v-card>
+    <v-container v-if="event">
+      <v-row>
+        <v-col>
+          <v-btn icon="mdi-arrow-left" color="primary" variant="tonal"> </v-btn>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-divider></v-divider>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <div class="text-h6 font-weight-bold">{{ event.name }}</div>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-icon color="info" icon="mdi-clock"></v-icon>
+          <span class="text-subtitle-1 font-weight-bold ma-2">Date & Time</span>
+          <br />
+          <span class="text-body-2 ma-2">{{ event.date }}</span>
+          <span class="text-body-2 ma-2">{{ event.time }}</span>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-icon color="info" icon="mdi-map-marker"></v-icon>
+          <span class="text-subtitle-1 font-weight-bold">Location</span>
+          <br />
+          <span class="ma-2 text-body-2">{{ event.location }}</span>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <span class="text-subtitle-1 font-weight-bold">Description</span>
+          <br />
+          <span class="text-body-2">{{ event.description }}</span>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <span class="text-subtitle-1 font-weight-bold">Category</span>
+          <br />
+          <span class="text-body-2">{{ event.category }}</span>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-card>
 </template>
 <script>
 import {mapGetters} from "vuex";
@@ -45,7 +68,8 @@ export default {
       getEventById: "getEventById",
     }),
   },
-  created() {
+  async created() {
+    await this.$store.dispatch("event/getAllEvents");
     this.event = this.getEventById(this.id);
   },
 };
