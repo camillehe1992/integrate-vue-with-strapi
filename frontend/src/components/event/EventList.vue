@@ -1,6 +1,11 @@
 <template>
   <v-container fluid>
-    <v-row>
+    <v-row v-if="!events.length">
+      <v-col>
+        <v-alert text="No events found!" type="info" variant="tonal"></v-alert>
+      </v-col>
+    </v-row>
+    <v-row v-else>
       <v-col cols="4" v-for="event in events" :event="event" :key="event.id">
         <EventCard :event="event" />
       </v-col>
@@ -8,6 +13,7 @@
   </v-container>
 </template>
 <script>
+import {mapState} from "vuex";
 import EventCard from "@/components/event/EventCard.vue";
 export default {
   name: "EventsList",
@@ -15,38 +21,13 @@ export default {
     EventCard,
   },
   data() {
-    return {
-      events: [
-        {
-          id: 1,
-          name: "Charity Ball",
-          category: "Fundraising",
-          description:
-            "Spend an elegant night of dinner and dancing with us as we raise money for our new rescue farm.",
-          featuredImage: "https://placekitten.com/500/500",
-          images: [
-            "https://placekitten.com/500/500",
-            "https://placekitten.com/500/500",
-            "https://placekitten.com/500/500",
-          ],
-          location: "1234 Fancy Ave",
-          date: "12-25-2019",
-          time: "11:30",
-        },
-        {
-          id: 2,
-          name: "Rescue Center Goods Drive",
-          category: "Adoptions",
-          description:
-            "Come to our donation drive to help us replenish our stock of pet food, toys, bedding, etc. We will have live bands, games, food trucks, and much more.",
-          featuredImage: "https://placekitten.com/500/500",
-          images: ["https://placekitten.com/500/500"],
-          location: "1234 Dog Alley",
-          date: "11-21-2019",
-          time: "12:00",
-        },
-      ],
-    };
+    return {};
+  },
+  computed: mapState({
+    events: (state) => state.event.all,
+  }),
+  created() {
+    this.$store.dispatch("event/getAllEvents");
   },
 };
 </script>

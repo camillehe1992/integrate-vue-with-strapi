@@ -1,7 +1,7 @@
 <template>
   <div class="event-single">
     Event {{ id }}
-    <!-- <section class="hero is-primary">
+    <section class="hero is-primary">
       <div class="hero-body">
         <div class="container">
           <h1 class="title">{{ event.name }}</h1>
@@ -24,17 +24,29 @@
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
   </div>
 </template>
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   name: "SingleEvent",
   data() {
-    return {};
+    return {
+      event: null,
+    };
   },
   props: {
     id: String,
+  },
+  computed: {
+    ...mapGetters("event", {
+      getEventById: "getEventById",
+    }),
+  },
+  created() {
+    this.event = this.getEventById(this.id);
   },
 };
 </script>
