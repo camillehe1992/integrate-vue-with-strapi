@@ -1,17 +1,9 @@
-const HEADERS = {"Content-Type": "application/json"};
-
-const checkStatus = (resp) => {
-  if (resp.status >= 200 && resp.status < 300) return resp;
-  return this.parseJSON(resp).then((resp) => {
-    throw resp;
-  });
-};
-const parseJSON = (resp) => (resp.json ? resp.json() : resp);
+import {HEADERS, API_URL, checkStatus, parseJSON} from "./common.js";
 
 export default {
   async getProducts() {
     try {
-      const response = await fetch("http://localhost:1337/api/products?populate=*", {
+      const response = await fetch(API_URL + "/products?populate=*", {
         method: "GET",
         headers: HEADERS,
       })

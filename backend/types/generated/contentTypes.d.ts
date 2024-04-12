@@ -659,6 +659,7 @@ export interface ApiRestaurantRestaurant extends Schema.CollectionType {
     categories: Attribute.Relation<"api::restaurant.restaurant", "manyToMany", "api::category.category">;
     description: Attribute.Text & Attribute.Required;
     image: Attribute.Media;
+    openingHours: Attribute.Component<"restaurant-info.opening-hours">;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

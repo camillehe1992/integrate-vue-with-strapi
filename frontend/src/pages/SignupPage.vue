@@ -2,23 +2,12 @@
   <v-sheet class="fill-height pa-12 bg-grey-lighten-2" rounded>
     <v-card class="mx-auto pa-12 pb-8" elevation="6" max-width="448">
       <v-form v-model="form" @submit.prevent="onSubmit">
-        <div class="text-subtitle-1 text-medium-emphasis">First Name</div>
+        <div class="text-subtitle-1 text-medium-emphasis">User Name</div>
         <v-text-field
-          v-model="firstname"
+          v-model="username"
           :readonly="loading"
           :rules="[required]"
-          placeholder="First Name"
-          variant="outlined"
-          color="info"
-          clearable
-        ></v-text-field>
-
-        <div class="text-subtitle-1 text-medium-emphasis">Last Name</div>
-        <v-text-field
-          v-model="lastname"
-          :readonly="loading"
-          :rules="[required]"
-          placeholder="Last Name"
+          placeholder="User Name"
           variant="outlined"
           color="info"
           clearable
@@ -71,8 +60,7 @@ export default {
   data() {
     return {
       form: false,
-      firstname: null,
-      lastname: null,
+      username: null,
       email: null,
       password: null,
       loading: false,
@@ -80,12 +68,20 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
+    async onSubmit(e) {
       if (!this.form) return;
 
       this.loading = true;
 
-      setTimeout(() => (this.loading = false), 2000);
+      e.preventDefault();
+
+      const response = await this.$store.dispatch("auth/signup", {
+        username: this.username,
+        email: this.email,
+        password: this.password,
+      });
+      console.log(response);
+      this.loading = false;
     },
     required(v) {
       return !!v || "Field is required";

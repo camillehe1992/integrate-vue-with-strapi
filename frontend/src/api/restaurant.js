@@ -1,17 +1,9 @@
-const HEADERS = {"Content-Type": "application/json"};
-
-const checkStatus = (resp) => {
-  if (resp.status >= 200 && resp.status < 300) return resp;
-  return this.parseJSON(resp).then((resp) => {
-    throw resp;
-  });
-};
-const parseJSON = (resp) => (resp.json ? resp.json() : resp);
+import {HEADERS, API_URL, checkStatus, parseJSON} from "./common.js";
 
 export default {
   async getRestaurants() {
     try {
-      const response = await fetch("http://localhost:1337/api/restaurants?populate=*", {
+      const response = await fetch(API_URL + "/restaurants?populate=*", {
         method: "GET",
         headers: HEADERS,
       })
@@ -27,7 +19,7 @@ export default {
 
   async createRestaurant(restaurantData) {
     try {
-      const response = await fetch("http://localhost:1337/api/restaurants?populate=*", {
+      const response = await fetch(API_URL + " /restaurants?populate=*", {
         method: "POST",
         headers: HEADERS,
         body: JSON.stringify({data: restaurantData}),
@@ -44,7 +36,7 @@ export default {
 
   async getCategories() {
     try {
-      const response = await fetch("http://localhost:1337/api/categories", {
+      const response = await fetch(API_URL + "/categories", {
         method: "GET",
         headers: HEADERS,
       })

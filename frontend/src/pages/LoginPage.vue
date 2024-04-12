@@ -62,12 +62,17 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
+    async onSubmit(e) {
       if (!this.form) return;
-
       this.loading = true;
+      e.preventDefault();
 
-      setTimeout(() => (this.loading = false), 2000);
+      const {jwt} = await this.$store.dispatch("auth/login", {
+        identifier: this.email,
+        password: this.password,
+      });
+      localStorage.setItem("token", jwt);
+      this.loading = false;
     },
     required(v) {
       return !!v || "Field is required";
