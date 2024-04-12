@@ -1,8 +1,8 @@
 <template>
-  <v-card class="mx-auto">
+  <v-card class="mx-auto" :to="'/book/' + book.id">
     <v-card-item>
       <div align="center">
-        <v-img height="300" :src="book.image" cover> </v-img>
+        <v-img height="300" :src="book.image_medium" cover> </v-img>
       </div>
     </v-card-item>
     <v-card-item>

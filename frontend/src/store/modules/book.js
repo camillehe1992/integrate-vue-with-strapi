@@ -4,7 +4,11 @@ const state = () => ({
   all: [],
 });
 
-const getters = {};
+const getters = {
+  getBookById: (state) => (id) => {
+    return state.all.find((book) => book.id == id);
+  },
+};
 
 const actions = {
   async getAllBooks({commit}) {

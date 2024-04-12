@@ -57,7 +57,7 @@
 import {mapGetters} from "vuex";
 
 export default {
-  name: "SimpleRestaurant",
+  name: "SingleRestaurant",
   data() {
     return {
       restaurant: null,

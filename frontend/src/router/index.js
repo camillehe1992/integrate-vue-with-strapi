@@ -13,8 +13,9 @@ import RestaurantView from "@/views/RestaurantView.vue";
 import ShoppingCartView from "@/views/ShoppingCartView.vue";
 
 // Components
+import SingleBook from "@/components/book/SingleBook.vue";
 import SingleEvent from "@/components/event/SingleEvent.vue";
-import SingleRestaurant from "@/components/restaurant/SimpleRestaurant.vue";
+import SingleRestaurant from "@/components/restaurant/SingleRestaurant.vue";
 import AddRestaurant from "@/components/restaurant/AddRestaurant.vue";
 
 const routes = [
@@ -27,6 +28,11 @@ const routes = [
         path: "/book",
         name: "book",
         component: BookView,
+      },
+      {
+        path: "/book/:id",
+        component: SingleBook,
+        props: true,
       },
       {
         path: "restaurant",
