@@ -6,6 +6,12 @@ const state = () => ({
   newRestaurant: null,
 });
 
+const getters = {
+  getRestaurantById: (state) => (id) => {
+    return state.all.find((restaurant) => restaurant.id == id);
+  },
+};
+
 const actions = {
   async getAllRestaurants({commit}) {
     const restaurants = await restaurant.getRestaurants();
@@ -33,6 +39,7 @@ const mutations = {
 
 export default {
   namespaced: true,
+  getters,
   state,
   actions,
   mutations,

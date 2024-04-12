@@ -47,12 +47,12 @@ export default {
     },
   }),
   created() {
-    this.$store.dispatch("restaurants/getAllCategories");
+    this.$store.dispatch("restaurant/getAllCategories");
   },
   methods: {
     handleSubmit: async function (e) {
       e.preventDefault();
-      this.$store.dispatch("restaurants/createRestaurant", this.modifiedData);
+      this.$store.dispatch("restaurant/createRestaurant", this.modifiedData);
       this.$router.push({path: "/restaurant"});
     },
   },

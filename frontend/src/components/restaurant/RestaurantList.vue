@@ -11,14 +11,15 @@
 import {mapState} from "vuex";
 import RestaurantCard from "./RestaurantCard.vue";
 export default {
+  name: "RestaurantList",
   components: {
     RestaurantCard,
   },
   computed: mapState({
-    restaurants: (state) => state.restaurants.all,
+    restaurants: (state) => state.restaurant.all,
   }),
   created() {
-    this.$store.dispatch("restaurants/getAllRestaurants");
+    this.$store.dispatch("restaurant/getAllRestaurants");
   },
 };
 </script>

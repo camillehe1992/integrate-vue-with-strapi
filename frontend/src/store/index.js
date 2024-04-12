@@ -5,7 +5,7 @@ import book from "./modules/book";
 import cart from "./modules/cart";
 import event from "./modules/event";
 import products from "./modules/products";
-import restaurants from "./modules/restaurants";
+import restaurant from "./modules/restaurant";
 
 const debug = process.env.NODE_ENV !== "production";
 
@@ -16,7 +16,7 @@ export default createStore({
     cart,
     event,
     products,
-    restaurants,
+    restaurant,
   },
   strict: debug,
   plugins: debug ? [createLogger()] : [],

@@ -1,9 +1,9 @@
 <template>
   <v-card>
-    <v-container v-if="event">
+    <v-container v-if="event" fluid>
       <v-row>
         <v-col>
-          <v-btn to="/event" icon="mdi-arrow-left" color="primary" variant="tonal"> </v-btn>
+          <v-btn to="/event" icon="mdi-arrow-left" color="primary" variant="tonal" size="small"> </v-btn>
         </v-col>
       </v-row>
       <v-row>

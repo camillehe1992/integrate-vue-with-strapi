@@ -7,9 +7,6 @@
     </v-card-item>
     <v-card-item>
       <v-card-title class="text-subtitle-2 font-weight-bold">{{ restaurant.name }}</v-card-title>
-      <!-- <v-chip v-for="category in restaurant.categories.data" :key="category.id" size="small" color="primary" label>
-        {{ category.attributes.name }}
-      </v-chip> -->
     </v-card-item>
     <v-card-item>
       <v-icon color="primary" icon="mdi-clock"></v-icon>

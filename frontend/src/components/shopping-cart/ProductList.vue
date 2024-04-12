@@ -13,6 +13,7 @@ import {mapState} from "vuex";
 import ProductCard from "./ProductCard.vue";
 
 export default {
+  name: "ProductList",
   components: {
     ProductCard,
   },
