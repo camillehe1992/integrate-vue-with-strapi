@@ -7,7 +7,7 @@
           <v-card-subtitle>Restaurants</v-card-subtitle>
         </v-col>
         <v-col col="2" class="d-flex flex-row-reverse">
-          <AddRestaurant />
+          <v-btn color="primary" variant="outlined" text="Add Restaurant" :to="'/add-restaurant'"></v-btn>
         </v-col>
       </v-row>
       <v-divider></v-divider>
@@ -18,13 +18,11 @@
 </template>
 <script>
 import RestaurantList from "@/components/restaurant/RestaurantList.vue";
-import AddRestaurant from "@/components/restaurant/AddRestaurant.vue";
 
 export default {
   name: "RestaurantView",
   components: {
     RestaurantList,
-    AddRestaurant,
   },
 };
 </script>

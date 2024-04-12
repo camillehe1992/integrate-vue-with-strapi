@@ -7,7 +7,7 @@ export const HEADERS = {"Content-Type": "application/json"};
 
 export const checkStatus = (resp) => {
   if (resp.status >= 200 && resp.status < 300) return resp;
-  return this.parseJSON(resp).then((resp) => {
+  return parseJSON(resp).then((resp) => {
     throw resp;
   });
 };

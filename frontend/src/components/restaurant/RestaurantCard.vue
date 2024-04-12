@@ -1,5 +1,5 @@
 <template lang="">
-  <v-card class="mx-auto">
+  <v-card class="mx-auto" :to="'/restaurant/' + restaurantId">
     <v-card-item>
       <div align="center">
         <v-img class="text-white" height="160" :src="apiUrl + restaurant.image.data.attributes.url" cover> </v-img>
@@ -27,6 +27,7 @@ export default {
     };
   },
   props: {
+    restaurantId: Number,
     restaurant: Object,
   },
 };

@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row>
       <v-col cols="3" v-for="restaurant in restaurants" :key="restaurant.id">
-        <RestaurantCard :restaurant="restaurant.attributes" />
+        <RestaurantCard :restaurant="restaurant.attributes" :restaurantId="restaurant.id" />
       </v-col>
     </v-row>
   </v-container>

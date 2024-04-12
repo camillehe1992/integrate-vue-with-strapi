@@ -19,7 +19,7 @@ export default {
 
   async createRestaurant(restaurantData) {
     try {
-      const response = await fetch(API_URL + " /restaurants?populate=*", {
+      const response = await fetch(API_URL + " /restaurants", {
         method: "POST",
         headers: HEADERS,
         body: JSON.stringify({data: restaurantData}),

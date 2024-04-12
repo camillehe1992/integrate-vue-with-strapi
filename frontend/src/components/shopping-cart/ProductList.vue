@@ -1,4 +1,4 @@
-<template>
+<template lang="">
   <v-container fluid>
     <v-row>
       <v-col cols="3" v-for="product in products" :key="product.id">
@@ -11,6 +11,7 @@
 <script>
 import {mapState} from "vuex";
 import ProductCard from "./ProductCard.vue";
+
 export default {
   components: {
     ProductCard,
@@ -23,3 +24,4 @@ export default {
   },
 };
 </script>
+<style lang=""></style>

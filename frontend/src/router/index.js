@@ -14,6 +14,8 @@ import ShoppingCartView from "@/views/ShoppingCartView.vue";
 
 // Components
 import SingleEvent from "@/components/event/SingleEvent.vue";
+import SingleRestaurant from "@/components/restaurant/SimpleRestaurant.vue";
+import AddRestaurant from "@/components/restaurant/AddRestaurant.vue";
 
 const routes = [
   {
@@ -30,6 +32,15 @@ const routes = [
         path: "restaurant",
         name: "restaurant",
         component: RestaurantView,
+      },
+      {
+        path: "restaurant/:id",
+        component: SingleRestaurant,
+        props: true,
+      },
+      {
+        path: "add-restaurant",
+        component: AddRestaurant,
       },
       {
         path: "/order",

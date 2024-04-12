@@ -12,10 +12,8 @@ const actions = {
     commit("setRestaurants", restaurants);
   },
 
-  async createRestaurant({commit}, payload) {
+  async createRestaurant(payload) {
     await restaurant.createRestaurant(payload);
-    const restaurants = await restaurant.getRestaurants();
-    commit("setRestaurants", restaurants);
   },
 
   async getAllCategories({commit}) {
