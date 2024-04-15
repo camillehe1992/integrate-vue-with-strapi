@@ -7,7 +7,11 @@
           <v-card-subtitle>Products</v-card-subtitle>
         </v-col>
         <v-col col="2" class="d-flex flex-row-reverse">
-          <ShoppingCart />
+          <v-btn variant="text" class="text-none" to="/cart">
+            <v-badge color="error" :content="totalCount">
+              <v-icon color="primary" size="large">mdi-cart</v-icon>
+            </v-badge>
+          </v-btn>
         </v-col>
       </v-row>
       <v-divider></v-divider>
@@ -17,14 +21,18 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
 import ProductList from "@/components/shopping-cart/ProductList.vue";
-import ShoppingCart from "@/components/shopping-cart/ShoppingCart.vue";
 
 export default {
   name: "ShoppingCartView",
   components: {
     ProductList,
-    ShoppingCart,
+  },
+  computed: {
+    ...mapGetters("cart", {
+      totalCount: "cartTotalCount",
+    }),
   },
 };
 </script>

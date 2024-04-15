@@ -13,10 +13,15 @@ import RestaurantView from "@/views/RestaurantView.vue";
 import ShoppingCartView from "@/views/ShoppingCartView.vue";
 
 // Components
+// book
 import SingleBook from "@/components/book/SingleBook.vue";
+// event
 import SingleEvent from "@/components/event/SingleEvent.vue";
-import SingleRestaurant from "@/components/restaurant/SingleRestaurant.vue";
+// restaurant
 import AddRestaurant from "@/components/restaurant/AddRestaurant.vue";
+import SingleRestaurant from "@/components/restaurant/SingleRestaurant.vue";
+// shopping-cart
+import ShoppingCard from "@/components/shopping-cart/ShoppingCard.vue";
 
 const routes = [
   {
@@ -57,6 +62,11 @@ const routes = [
         path: "/shopping",
         name: "shopping",
         component: ShoppingCartView,
+      },
+      {
+        path: "/cart",
+        name: "cart",
+        component: ShoppingCard,
       },
       {
         path: "/event",
