@@ -2,11 +2,11 @@
   <v-card class="mx-auto">
     <v-card-item>
       <v-card-title>Your Cart</v-card-title>
-      <v-card-subtitle>
-        <p v-show="!products.length">Please add some products to cart.</p>
-      </v-card-subtitle>
     </v-card-item>
     <v-divider></v-divider>
+    <v-card-item>
+      <p v-show="!products.length">Please add some products to cart.</p>
+    </v-card-item>
     <v-card-item>
       <v-list :items="items" lines="two" item-props>
         <v-list-item
@@ -62,7 +62,6 @@ export default {
       totalCount: "cartTotalCount",
     }),
   },
-  created: {},
   methods: {
     currency,
     checkout(products) {
