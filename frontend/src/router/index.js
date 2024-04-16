@@ -11,6 +11,7 @@ import EventView from "@/views/EventView.vue";
 import OrderView from "@/views/OrderView.vue";
 import RestaurantView from "@/views/RestaurantView.vue";
 import ShoppingCartView from "@/views/ShoppingCartView.vue";
+import EChartsView from "@/views/EChartsView.vue";
 
 // Components
 // book
@@ -77,6 +78,11 @@ const routes = [
         path: "/event/:id",
         component: SingleEvent,
         props: true,
+      },
+      {
+        path: "/echarts",
+        name: "echarts",
+        component: EChartsView,
       },
     ],
   },
