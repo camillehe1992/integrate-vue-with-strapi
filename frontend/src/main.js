@@ -9,6 +9,7 @@ import "vuetify/styles";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 import {aliases, mdi} from "vuetify/iconsets/mdi";
+import * as echarts from "echarts/core";
 
 const vuetify = createVuetify({
   components,
@@ -22,4 +23,4 @@ const vuetify = createVuetify({
   },
 });
 
-createApp(App).use(vuetify).use(store).use(router).mount("#app");
+createApp(App).use(vuetify).use(echarts).use(store).use(router).mount("#app");
