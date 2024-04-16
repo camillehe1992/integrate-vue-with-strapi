@@ -9,7 +9,7 @@
         <BarChart id="bar-chart" :option="barOption" />
       </v-col>
       <v-col>
-        <PieChart id="pie-chart" :option="PieOption" />
+        <PieChart id="pie-chart" :option="pieOption" />
       </v-col>
     </v-row>
     <v-row>
@@ -22,9 +22,11 @@
 <script>
 import moment from "moment";
 import {mapState} from "vuex";
+
 import BarChart from "@/components/echarts/widgets/BarChart.vue";
 import PieChart from "@/components/echarts/widgets/PieChart.vue";
 import TableChart from "@/components/echarts/widgets/TableChart.vue";
+
 export default {
   name: "EChartsView",
   components: {
@@ -68,7 +70,7 @@ export default {
           },
         ],
       },
-      PieOption: {
+      pieOption: {
         title: {
           text: "Referer of a Website",
           subtext: "Fake Data",
@@ -116,6 +118,7 @@ export default {
         books_count: book.books_count,
         language_code: book.language_code,
         average_rating: book.average_rating,
+        average_rating_rounded: book.average_rating_rounded,
         ratings_count: book.ratings_count,
         original_publication_year: book.original_publication_year,
       };
@@ -123,6 +126,7 @@ export default {
   },
   mounted() {
     this.currentDateTime = moment().format();
+    // this.pieOption["series"] = byRating(this.bookItems);
   },
 };
 </script>
