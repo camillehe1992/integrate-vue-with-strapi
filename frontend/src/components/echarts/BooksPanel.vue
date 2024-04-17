@@ -3,7 +3,7 @@
     <v-sheet border class="pa-2 mb-4">
       <v-row>
         <v-col class="text-subtitle-1 font-weight-bold"> Books </v-col>
-        <v-col class="d-flex flex-row-reverse text-body-2">Date: {{ currentDateTime }}</v-col>
+        <v-col v-if="currentDateTime" class="d-flex flex-row-reverse text-body-2">Date: {{ currentDateTime }}</v-col>
       </v-row>
       <v-row>
         <v-col>
@@ -162,6 +162,7 @@ export default {
     books: (state) => state.book.all,
   }),
   async created() {
+    this.getCurrentDateTime();
     await this.$store.dispatch("book/getAllBooks");
     this.bookItems = this.books.map((book) => {
       return {
@@ -176,8 +177,12 @@ export default {
     });
   },
   mounted() {
-    this.currentDateTime = moment().format();
-    // this.pieOption["series"] = byRating(this.bookItems);
+    setInterval(this.getCurrentDateTime, 1000);
+  },
+  methods: {
+    getCurrentDateTime() {
+      this.currentDateTime = moment().format("YYYY-MM-DD HH:mm:ss");
+    },
   },
 };
 </script>
