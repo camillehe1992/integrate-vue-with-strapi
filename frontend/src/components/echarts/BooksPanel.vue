@@ -1,22 +1,33 @@
 <template lang="">
-  <v-container fuild class="border">
-    <v-row>
-      <v-col class="text-subtitle-1 font-weight-bold"> Books </v-col>
-      <v-col class="d-flex flex-row-reverse text-body-2">Date: {{ currentDateTime }}</v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <BarChart id="bar-chart" :option="barOption" />
-      </v-col>
-      <v-col>
-        <PieChart id="pie-chart" :option="pieOption" />
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <TableChart :items="bookItems" :itemsPerPage="itemsPerPage" :headers="headers" />
-      </v-col>
-    </v-row>
+  <v-container class="pa-0">
+    <v-sheet border class="pa-2 mb-4">
+      <v-row>
+        <v-col class="text-subtitle-1 font-weight-bold"> Books </v-col>
+        <v-col class="d-flex flex-row-reverse text-body-2">Date: {{ currentDateTime }}</v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <TableChart :items="bookItems" :itemsPerPage="itemsPerPage" :headers="headers" />
+        </v-col>
+      </v-row>
+    </v-sheet>
+    <v-sheet border class="pl-2 mb-4">
+      <v-row>
+        <v-col>
+          <BarChart id="bar-chart" :option="barOption" />
+        </v-col>
+        <v-col>
+          <PieChart id="pie-chart" :option="pieOption" />
+        </v-col>
+      </v-row>
+    </v-sheet>
+    <v-sheet border class="pl-2">
+      <v-row>
+        <v-col>
+          <StackedBarChart id="stacked-bar-chart" :option="stackedBarOption" />
+        </v-col>
+      </v-row>
+    </v-sheet>
   </v-container>
 </template>
 <script>
@@ -26,6 +37,7 @@ import {mapState} from "vuex";
 import BarChart from "@/components/echarts/widgets/BarChart.vue";
 import PieChart from "@/components/echarts/widgets/PieChart.vue";
 import TableChart from "@/components/echarts/widgets/TableChart.vue";
+import StackedBarChart from "@/components/echarts/widgets/StackedBarChart.vue";
 
 export default {
   name: "EChartsView",
@@ -33,6 +45,7 @@ export default {
     BarChart,
     PieChart,
     TableChart,
+    StackedBarChart,
   },
   data() {
     return {
@@ -102,6 +115,44 @@ export default {
                 shadowColor: "rgba(0, 0, 0, 0.5)",
               },
             },
+          },
+        ],
+      },
+      stackedBarOption: {
+        title: {
+          text: "World Population",
+        },
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "shadow",
+          },
+        },
+        legend: {},
+        grid: {
+          left: "3%",
+          right: "4%",
+          bottom: "3%",
+          containLabel: true,
+        },
+        xAxis: {
+          type: "value",
+          boundaryGap: [0, 0.01],
+        },
+        yAxis: {
+          type: "category",
+          data: ["Brazil", "Indonesia", "USA", "India", "China", "World"],
+        },
+        series: [
+          {
+            name: "2011",
+            type: "bar",
+            data: [18203, 23489, 29034, 104970, 131744, 630230],
+          },
+          {
+            name: "2012",
+            type: "bar",
+            data: [19325, 23438, 31000, 121594, 134141, 681807],
           },
         ],
       },
