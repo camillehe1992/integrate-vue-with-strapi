@@ -4,6 +4,7 @@
   </v-sheet>
 </template>
 <script>
+import {debounce} from "@/utils/debounce";
 export default {
   name: "StackedBarChart",
   props: {
@@ -30,14 +31,17 @@ export default {
   },
   mounted() {
     this.initCharts();
-    window.onresize = function () {
-      this.chart.resize();
-    };
+    debounce(2000, this.resizeChart)();
   },
   methods: {
     initCharts() {
       this.chart = this.$echarts.init(document.getElementById(this.id));
       this.chart.setOption(this.option);
+    },
+    resizeChart() {
+      window.onresize = () => {
+        this.chart && this.chart.resize();
+      };
     },
   },
 };
