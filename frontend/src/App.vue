@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="bg-grey-lighten-2 h-screen">
+  <div id="app" class="h-screen">
     <RouterView />
   </div>
 </template>
@@ -14,3 +14,8 @@ export default {
   components: {},
 };
 </script>
+<style lang="scss">
+body {
+  background-color: #e0e0e0;
+}
+</style>
