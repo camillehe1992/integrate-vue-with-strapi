@@ -1,6 +1,6 @@
 <template lang="">
   <v-sheet class="pa-2 ma-2">
-    <div :id="id" style="width: 100%; height: 400px"></div>
+    <div :id="id" style="height: 400px"></div>
   </v-sheet>
 </template>
 <script>
@@ -16,6 +16,10 @@ export default {
       type: Object,
       required: true,
     },
+    dataset: {
+      type: Array,
+      required: true,
+    },
   },
   data() {
     return {
@@ -24,12 +28,15 @@ export default {
   },
   mounted() {
     this.initCharts();
-    debounce(2000, this.resizeChart)();
+    debounce(500, this.resizeChart)();
   },
   methods: {
     initCharts() {
       this.chart = this.$echarts.init(document.getElementById(this.id));
+      this.chart.showLoading();
+      this.option.series[0].data = this.dataset;
       this.chart.setOption(this.option);
+      this.chart.hideLoading();
     },
     resizeChart() {
       window.onresize = () => {

@@ -13,7 +13,6 @@ const getters = {
 const actions = {
   async getAllBooks({commit}) {
     const books = await book.getBooks();
-    console.log(books);
     commit("setBooks", books);
   },
 };

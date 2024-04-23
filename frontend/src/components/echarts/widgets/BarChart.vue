@@ -16,6 +16,10 @@ export default {
       type: Object,
       required: true,
     },
+    dataset: {
+      type: Array,
+      required: true,
+    },
     style: {
       type: Object,
       required: false,
@@ -31,12 +35,17 @@ export default {
   },
   mounted() {
     this.initCharts();
-    debounce(2000, this.resizeChart)();
+    // debounce(2000, this.resizeChart)();
   },
   methods: {
     initCharts() {
       this.chart = this.$echarts.init(document.getElementById(this.id));
+      this.chart.showLoading();
+      this.option.xAxis.data = this.dataset.map((val) => val.name);
+      this.option.series[0].data = this.dataset.map((val) => val.value);
+
       this.chart.setOption(this.option);
+      this.chart.hideLoading();
     },
     resizeChart() {
       window.onresize = () => {

@@ -1,6 +1,6 @@
 <template lang="">
   <v-sheet class="pa-2 ma-2">
-    <v-data-table :items-per-page="itemsPerPage" :headers="headers" :items="items"></v-data-table>
+    <v-data-table dense :items-per-page="itemsPerPage" :headers="headers" :items="items"></v-data-table>
   </v-sheet>
 </template>
 <script>
