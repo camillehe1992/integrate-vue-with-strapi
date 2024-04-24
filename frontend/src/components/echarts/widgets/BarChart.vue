@@ -12,10 +12,6 @@ export default {
       type: String,
       required: true,
     },
-    option: {
-      type: Object,
-      required: true,
-    },
     dataset: {
       type: Array,
       required: true,
@@ -27,23 +23,58 @@ export default {
         return {width: "100%", height: "400px"};
       },
     },
+    title: {
+      type: String,
+      required: false,
+      default: null,
+    },
+    xAxisName: {
+      type: String,
+      required: false,
+      default: null,
+    },
+    yAxisName: {
+      type: String,
+      required: false,
+      default: null,
+    },
   },
   data() {
     return {
       chart: null,
+      option: {
+        title: {
+          left: "left",
+        },
+        tooltip: {},
+        xAxis: {
+          type: "category",
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            type: "bar",
+            data: [],
+          },
+        ],
+      },
     };
   },
   mounted() {
     this.initCharts();
-    // debounce(2000, this.resizeChart)();
+    debounce(2000, this.resizeChart)();
   },
   methods: {
     initCharts() {
       this.chart = this.$echarts.init(document.getElementById(this.id));
       this.chart.showLoading();
+      this.option.title.text = this.title;
+      this.option.xAxis.name = this.xAxisName;
       this.option.xAxis.data = this.dataset.map((val) => val.name);
+      this.option.yAxis.name = this.yAxisName;
       this.option.series[0].data = this.dataset.map((val) => val.value);
-
       this.chart.setOption(this.option);
       this.chart.hideLoading();
     },

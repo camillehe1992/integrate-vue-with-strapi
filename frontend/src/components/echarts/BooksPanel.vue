@@ -19,8 +19,10 @@
           <BarChart
             v-if="distributionByPublishedYearDataset.length"
             id="bar-chart"
-            :option="distributionByPublishedYearOption"
             :dataset="distributionByPublishedYearDataset"
+            :title="distributionByPublishedYearOption.title"
+            :xAxisName="distributionByPublishedYearOption.xAxisName"
+            :yAxisName="distributionByPublishedYearOption.yAxisName"
           />
         </v-col>
       </v-row>
@@ -31,16 +33,18 @@
           <PieChart
             v-if="distributionByLanguage.length"
             id="distribution-by-language-pie-chart"
-            :option="distributionByLanguageOption"
             :dataset="distributionByLanguage"
+            :title="distributionByLanguageOption.title"
+            :seriesName="distributionByLanguageOption.seriesName"
           />
         </v-col>
         <v-col>
           <PieChart
             v-if="distributionByLanguage.length"
             id="distribution-by-avg-rating-pie-chart"
-            :option="distributionByAvgRatingOption"
             :dataset="distributionByAvgRating"
+            :title="distributionByAvgRatingOption.title"
+            :seriesName="distributionByAvgRatingOption.seriesName"
           />
         </v-col>
       </v-row>
@@ -75,83 +79,22 @@ export default {
         {title: "Ratings Count", key: "ratings_count", align: "end"},
         {title: "Publish Yeasr", key: "original_publication_year", align: "start"},
       ],
-      distributionByPublishedYearOption: {
-        title: {
-          text: "Distribution of Published Year",
-          left: "left",
-        },
-        tooltip: {},
-        xAxis: {
-          data: [],
-        },
-        yAxis: {},
-        series: [
-          {
-            type: "bar",
-            name: "bar",
-            data: [],
-          },
-        ],
-      },
-      distributionByLanguageOption: {
-        title: {
-          text: "Distribution of Language",
-          left: "left",
-        },
-        tooltip: {
-          trigger: "item",
-        },
-        legend: {
-          orient: "vertical",
-          left: "right",
-        },
-        series: [
-          {
-            name: "Language",
-            type: "pie",
-            radius: "50%",
-            data: [],
-            emphasis: {
-              itemStyle: {
-                shadowBlur: 10,
-                shadowOffsetX: 0,
-                shadowColor: "rgba(0, 0, 0, 0.5)",
-              },
-            },
-          },
-        ],
-      },
-      distributionByAvgRatingOption: {
-        title: {
-          text: "Distribution of Avg Rating",
-          left: "left",
-        },
-        tooltip: {
-          trigger: "item",
-        },
-        legend: {
-          orient: "vertical",
-          left: "right",
-        },
-        series: [
-          {
-            name: "Avg Rating",
-            type: "pie",
-            radius: "50%",
-            data: [],
-            emphasis: {
-              itemStyle: {
-                shadowBlur: 10,
-                shadowOffsetX: 0,
-                shadowColor: "rgba(0, 0, 0, 0.5)",
-              },
-            },
-          },
-        ],
-      },
       distributionByPublishedYearDataset: [],
+      distributionByPublishedYearOption: {
+        title: "Distribution of Published Year",
+        xAxisName: "Published Year",
+        yAxisName: "Amount of Books",
+      },
       distributionByLanguage: [],
+      distributionByLanguageOption: {
+        title: "Distribution of Language",
+        seriesName: "Language",
+      },
       distributionByAvgRating: [],
+      distributionByAvgRatingOption: {
+        title: "Distribution of Avg Rating",
+        seriesName: "Avg Rating",
+      },
     };
   },
   computed: mapState({
