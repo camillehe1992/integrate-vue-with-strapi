@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       routes: [
-        {icon: "mdi-view-dashboard", title: "Dashboard", value: "home", to: "/home"},
+        {icon: "mdi-view-dashboard", title: "Dashboard", value: "dashboard", to: "/dashboard"},
         {icon: "mdi-bookshelf", title: "Book", value: "book", to: "/book"},
         {icon: "mdi-calendar", title: "Event", value: "event", to: "/event"},
         {icon: "mdi-chart-bar", title: "E-Charts", value: "echarts", to: "/echarts"},

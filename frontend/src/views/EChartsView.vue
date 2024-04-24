@@ -11,20 +11,11 @@
   </v-card>
 </template>
 <script>
-import moment from "moment";
 import BooksPanel from "@/components/echarts/BooksPanel.vue";
 export default {
   name: "EChartsView",
   components: {
     BooksPanel,
-  },
-  data() {
-    return {
-      currentDateTime: null,
-    };
-  },
-  mounted() {
-    this.currentDateTime = moment().format();
   },
 };
 </script>

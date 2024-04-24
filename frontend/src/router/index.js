@@ -7,6 +7,7 @@ import SignupPage from "@/pages/SignupPage.vue";
 import ResetPasswordPage from "@/pages/ResetPasswordPage.vue";
 // Views
 import BookView from "@/views/BookView.vue";
+import DashboardView from "@/views/DashboardView.vue";
 import EventView from "@/views/EventView.vue";
 import OrderView from "@/views/OrderView.vue";
 import RestaurantView from "@/views/RestaurantView.vue";
@@ -29,7 +30,12 @@ const routes = [
     path: "/",
     name: "home",
     component: HomePage,
+    redirect: "/dashboard",
     children: [
+      {
+        path: "/dashboard",
+        component: DashboardView,
+      },
       {
         path: "/book",
         name: "book",
@@ -85,10 +91,6 @@ const routes = [
         component: EChartsView,
       },
     ],
-  },
-  {
-    path: "/home",
-    redirect: "/",
   },
   {
     path: "/login",

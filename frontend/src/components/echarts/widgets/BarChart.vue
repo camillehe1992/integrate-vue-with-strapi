@@ -25,8 +25,7 @@ export default {
     },
     title: {
       type: String,
-      required: false,
-      default: null,
+      required: true,
     },
     xAxisName: {
       type: String,
@@ -46,7 +45,9 @@ export default {
         title: {
           left: "left",
         },
-        tooltip: {},
+        tooltip: {
+          trigger: "item",
+        },
         xAxis: {
           type: "category",
         },
@@ -71,9 +72,9 @@ export default {
       this.chart = this.$echarts.init(document.getElementById(this.id));
       this.chart.showLoading();
       this.option.title.text = this.title;
-      this.option.xAxis.name = this.xAxisName;
+      if (this.xAxisName) this.option.xAxis.name = this.xAxisName;
       this.option.xAxis.data = this.dataset.map((val) => val.name);
-      this.option.yAxis.name = this.yAxisName;
+      if (this.yAxisName) this.option.yAxis.name = this.yAxisName;
       this.option.series[0].data = this.dataset.map((val) => val.value);
       this.chart.setOption(this.option);
       this.chart.hideLoading();

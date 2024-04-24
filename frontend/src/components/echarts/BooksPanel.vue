@@ -3,9 +3,6 @@
     <v-sheet border class="pa-2 mb-4">
       <v-row>
         <v-col class="text-subtitle-1 font-weight-bold"> Books </v-col>
-        <v-col v-if="currentDateTime" class="d-flex flex-row-reverse text-body-2 font-weight-bold"
-          >Date: {{ currentDateTime }}</v-col
-        >
       </v-row>
       <v-row>
         <v-col>
@@ -52,7 +49,6 @@
   </v-container>
 </template>
 <script>
-import moment from "moment";
 import * as R from "ramda";
 import {mapState} from "vuex";
 
@@ -69,7 +65,6 @@ export default {
   },
   data() {
     return {
-      currentDateTime: null,
       bookItems: [],
       itemsPerPage: 5,
       headers: [
@@ -100,11 +95,7 @@ export default {
   computed: mapState({
     books: (state) => state.book.all,
   }),
-  created() {
-    this.getCurrentDateTime();
-  },
   async mounted() {
-    setInterval(this.getCurrentDateTime, 1000);
     await this.$store.dispatch("book/getAllBooks");
     this.bookItems = this.books.map((book) => {
       return {
@@ -122,9 +113,6 @@ export default {
     this.getDistributionByAvgRatingData(this.bookItems);
   },
   methods: {
-    getCurrentDateTime() {
-      this.currentDateTime = moment().format("YYYY-MM-DD HH:mm:ss");
-    },
     getDistributionByProp(items, prop) {
       return R.collectBy(R.prop(prop), items).map((group) => {
         return {
