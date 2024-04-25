@@ -1,5 +1,5 @@
 <template lang="">
-  <v-container fluid>
+  <v-container no-gutters>
     <v-data-iterator :items="books" :items-per-page="4">
       <template v-slot:default="{items}">
         <v-row v-for="item in items" :key="item.id">

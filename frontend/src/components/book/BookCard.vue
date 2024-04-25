@@ -5,7 +5,7 @@
         <v-img :src="book.image_medium"> </v-img>
       </v-avatar>
       <div>
-        <v-card-title class="font-weight-bold"> {{ book.title }} </v-card-title>
+        <v-card-title class="text-h6 font-weight-bold"> {{ book.title }} </v-card-title>
         <v-card-subtitle>Author : {{ book.authors }}</v-card-subtitle>
         <v-card-text>
           <v-rating

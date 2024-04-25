@@ -1,5 +1,5 @@
 <template lang="">
-  <v-card color="info" class="mx-auto">
+  <v-card variant="tonal" color="primary" class="mx-auto">
     <v-card-item>
       <v-card-title class="text-h6 mb-1"> {{ event.name }}</v-card-title>
     </v-card-item>
