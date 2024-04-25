@@ -2,8 +2,8 @@
   <v-container fluid>
     <v-data-iterator :items="books" :items-per-page="4">
       <template v-slot:default="{items}">
-        <v-row>
-          <v-col cols="3" v-for="item in items" :key="item.id">
+        <v-row v-for="item in items" :key="item.id">
+          <v-col>
             <BookCard :book="item.raw" />
           </v-col>
         </v-row>

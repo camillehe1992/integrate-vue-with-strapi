@@ -1,14 +1,11 @@
 <template lang="">
   <v-card>
     <v-card-item>
-      <v-card-title>E-Charts Example</v-card-title>
-      <v-card-subtitle>My Charts</v-card-subtitle>
+      <v-card-title>Dashboard</v-card-title>
       <v-divider></v-divider>
     </v-card-item>
     <v-card-item>
-      <div v-if="currentDateTime" class="d-flex flex-row-reverse text-body-2 font-weight-bold">
-        Date: {{ currentDateTime }}
-      </div>
+      <div v-if="currentDateTime" align="center" class="text-h3 font-weight-bold">Date: {{ currentDateTime }}</div>
     </v-card-item>
   </v-card>
 </template>
