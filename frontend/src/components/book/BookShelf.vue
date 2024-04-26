@@ -48,8 +48,10 @@ export default {
   computed: mapState({
     books: (state) => state.book.all,
   }),
-  created() {
-    this.$store.dispatch("book/getAllBooks");
+  async created() {
+    if (!this.books.length) {
+      await this.$store.dispatch("book/getAllBooks");
+    }
   },
 };
 </script>

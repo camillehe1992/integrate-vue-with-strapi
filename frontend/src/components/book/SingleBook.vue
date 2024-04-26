@@ -36,21 +36,21 @@
                   half-increments
                   readonly
                 ></v-rating>
-                <div class="text-grey ms-4">{{ book.average_rating }} ({{ book.ratings_count }})</div>
+                <div class="text-grey ms-4">{{ book.average_rating }} ({{ book.ratings_count }} ratings)</div>
               </v-row>
             </v-col>
           </v-row>
 
           <v-row>
             <v-col>
-              <v-icon color="info" icon="mdi-clock"></v-icon>
+              <v-icon icon="mdi-clock"></v-icon>
               <span class="text-subtitle-1 font-weight-bold ma-2">ISBN</span>
               <br />
               <span class="text-body-2 ma-2">{{ book.isbn }}</span>
             </v-col>
             <v-col>
-              <v-icon color="info" icon="mdi-clock"></v-icon>
-              <span class="text-subtitle-1 font-weight-bold ma-2">Books Count</span>
+              <v-icon icon="mdi-sale"></v-icon>
+              <span class="text-subtitle-1 font-weight-bold ma-2">Books Amount</span>
               <br />
               <span class="text-body-2 ma-2">{{ book.books_count }}</span>
             </v-col>
@@ -58,13 +58,13 @@
 
           <v-row>
             <v-col>
-              <v-icon color="info" icon="mdi-clock"></v-icon>
+              <v-icon icon="mdi-calendar-range"></v-icon>
               <span class="text-subtitle-1 font-weight-bold ma-2">Original Publish Year</span>
               <br />
               <span class="text-body-2 ma-2">{{ book.original_publication_year }}</span>
             </v-col>
             <v-col>
-              <v-icon color="info" icon="mdi-clock"></v-icon>
+              <v-icon icon="mdi-web"></v-icon>
               <span class="text-subtitle-1 font-weight-bold ma-2">Language</span>
               <br />
               <span class="text-body-2 ma-2">{{ book.language_code }}</span>
@@ -73,10 +73,16 @@
 
           <v-row>
             <v-col>
-              <v-icon color="info" icon="mdi-account"></v-icon>
+              <v-icon icon="mdi-account"></v-icon>
               <span class="text-subtitle-1 font-weight-bold ma-2">Authors</span>
               <br />
               <span class="text-body-2 ma-2">{{ book.authors }}</span>
+            </v-col>
+            <v-col>
+              <v-icon icon="mdi-package"></v-icon>
+              <span class="text-subtitle-1 font-weight-bold ma-2">Original Series</span>
+              <br />
+              <span class="text-body-2 ma-2">{{ book.original_series || "N/A" }}</span>
             </v-col>
           </v-row>
         </v-col>
@@ -85,7 +91,7 @@
   </v-card>
 </template>
 <script>
-import {mapGetters} from "vuex";
+import {mapGetters, mapState} from "vuex";
 
 export default {
   name: "SingleBook",
@@ -95,17 +101,26 @@ export default {
     };
   },
   props: {
-    id: Number,
+    id: String,
   },
   computed: {
+    ...mapState({
+      books: (state) => state.book.all,
+    }),
     ...mapGetters("book", {
       getBookById: "getBookById",
     }),
   },
   async created() {
-    await this.$store.dispatch("book/getAllBooks");
+    if (!this.books.length) {
+      await this.$store.dispatch("book/getAllBooks");
+    }
     this.book = this.getBookById(this.id);
   },
 };
 </script>
-<style lang=""></style>
+<style lang="scss">
+.v-icon {
+  color: #1867c0;
+}
+</style>
