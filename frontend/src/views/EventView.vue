@@ -12,7 +12,7 @@
 import EventList from "@/components/event/EventList.vue";
 
 export default {
-  name: "OrderView",
+  name: "EventView",
   components: {
     EventList,
   },

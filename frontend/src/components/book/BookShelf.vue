@@ -1,9 +1,24 @@
 <template lang="">
   <v-container no-gutters>
-    <v-data-iterator :items="books" :items-per-page="4">
+    <v-data-iterator :items="books" :items-per-page="8" :loading="loading" :search="search">
+      <template v-slot:header>
+        <v-toolbar class="px-2">
+          <v-text-field
+            v-model="search"
+            density="comfortable"
+            placeholder="Search"
+            prepend-inner-icon="mdi-magnify"
+            style="max-width: 300px"
+            variant="solo"
+            clearable
+            hide-details
+          ></v-text-field>
+        </v-toolbar>
+      </template>
+
       <template v-slot:default="{items}">
-        <v-row v-for="item in items" :key="item.id">
-          <v-col>
+        <v-row dense>
+          <v-col cols="6" v-for="item in items" :key="item.id">
             <BookCard :book="item.raw" />
           </v-col>
         </v-row>
@@ -43,15 +58,20 @@ export default {
     BookCard,
   },
   data() {
-    return {};
+    return {
+      search: "",
+      loading: false,
+    };
   },
   computed: mapState({
     books: (state) => state.book.all,
   }),
-  async created() {
+  async mounted() {
+    this.loading = true;
     if (!this.books.length) {
       await this.$store.dispatch("book/getAllBooks");
     }
+    this.loading = false;
   },
 };
 </script>

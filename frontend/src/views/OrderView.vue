@@ -5,7 +5,6 @@
       <v-card-subtitle>My Orders</v-card-subtitle>
       <v-divider></v-divider>
     </v-card-item>
-    <BookShelf />
   </v-card>
 </template>
 <script>

@@ -30,13 +30,13 @@
               <v-row class="mx-0">
                 <v-rating
                   :model-value="book.average_rating_rounded"
-                  color="amber"
-                  density="compact"
+                  active-color="yellow-accent-4"
+                  density="comfortable"
                   size="small"
                   half-increments
                   readonly
                 ></v-rating>
-                <div class="text-grey ms-4">{{ book.average_rating }} ({{ book.ratings_count }} ratings)</div>
+                <div class="text-grey ms-4">{{ book.average_rating }} ({{ book.ratings_count }})</div>
               </v-row>
             </v-col>
           </v-row>
@@ -119,7 +119,7 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .v-icon {
   color: #1867c0;
 }
