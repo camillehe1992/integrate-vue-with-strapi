@@ -26,9 +26,8 @@ export default {
   computed: mapState({
     events: (state) => state.event.all,
   }),
-  created() {
-    this.$store.dispatch("event/getAllEvents");
+  async created() {
+    await this.$store.dispatch("event/getAllEvents");
   },
 };
 </script>
-<style lang=""></style>

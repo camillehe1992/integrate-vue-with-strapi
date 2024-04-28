@@ -66,7 +66,7 @@ export default {
   computed: mapState({
     books: (state) => state.book.all,
   }),
-  async mounted() {
+  async created() {
     this.loading = true;
     if (!this.books.length) {
       await this.$store.dispatch("book/getAllBooks");

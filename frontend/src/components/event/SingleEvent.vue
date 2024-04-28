@@ -18,7 +18,7 @@
       </v-row>
       <v-row>
         <v-col>
-          <v-icon color="info" icon="mdi-clock"></v-icon>
+          <v-icon icon="mdi-clock"></v-icon>
           <span class="text-subtitle-1 font-weight-bold ma-2">Date & Time</span>
           <br />
           <span class="text-body-2 ma-2">{{ event.date }}</span>
@@ -27,7 +27,7 @@
       </v-row>
       <v-row>
         <v-col>
-          <v-icon color="info" icon="mdi-map-marker"></v-icon>
+          <v-icon icon="mdi-map-marker"></v-icon>
           <span class="text-subtitle-1 font-weight-bold">Location</span>
           <br />
           <span class="ma-2 text-body-2">{{ event.location }}</span>
@@ -51,7 +51,7 @@
   </v-card>
 </template>
 <script>
-import {mapGetters} from "vuex";
+import {mapGetters, mapState} from "vuex";
 
 export default {
   name: "SingleEvent",
@@ -67,10 +67,20 @@ export default {
     ...mapGetters("event", {
       getEventById: "getEventById",
     }),
+    ...mapState({
+      events: (state) => state.event.all,
+    }),
   },
   async created() {
-    await this.$store.dispatch("event/getAllEvents");
+    if (!this.events.length) {
+      await this.$store.dispatch("event/getAllEvents");
+    }
     this.event = this.getEventById(this.id);
   },
 };
 </script>
+<style lang="scss" scoped>
+.v-icon {
+  color: #1867c0;
+}
+</style>

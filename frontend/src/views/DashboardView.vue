@@ -5,7 +5,7 @@
       <v-divider></v-divider>
     </v-card-item>
     <v-card-item>
-      <div v-if="currentDateTime" align="center" class="text-h3 font-weight-bold">Date: {{ currentDateTime }}</div>
+      <div v-if="currentDateTime" align="center" class="text-h3 font-weight-bold">{{ currentDateTime }}</div>
     </v-card-item>
   </v-card>
 </template>

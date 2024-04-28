@@ -16,7 +16,7 @@
       </div>
     </v-card-text>
     <v-card-actions>
-      <v-btn class="info" variant="tonal" :to="'/event/' + event.id"> More </v-btn>
+      <v-btn variant="tonal" :to="'/event/' + event.id"> More </v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -28,4 +28,8 @@ export default {
   },
 };
 </script>
-<style lang=""></style>
+<style lang="scss" scoped>
+.v-icon {
+  color: #1867c0;
+}
+</style>
